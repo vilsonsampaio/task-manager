@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+
+/* Dando reset no estilo */
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, ul, ul, p, dd, dt, dl {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* Global */
+
+:root {
+  --bg: #F5F6FA;
+  --principal: #4976EF;
+
+  --ok: #15CE9A;
+  --error: #E93F66;
+  --alert: #FFC866;
+
+  --titulo: #1D3451;
+  --subtitulo: #5F7896;
+  --subtitulo2: #8A9EB5;
+
+  --texto: #3D5879;
+
+  --regular: 400;
+  --semi-bold: 500;
+  --bold: 700;
+  --black: 900;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Roboto', sans-serif;
+  color: var(--texto);
+  font-weight: var(--regular);
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: var(--bold);
+  line-height: 48px;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: var(--semi-bold);
+  line-height: 32px;
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: var(--semi-bold);
+  line-height: 24px;
+  letter-spacing: 3px;
+}
+
+.txt-1 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.txt-2{
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.link {
+  color: var(--principal);
+  font-weight: var(--semi-bold);
+}
+
+h1 span {
+  font-weight: var(--black);
+  color: var(--principal);
+}
+
+button {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 16px 0px;
+  
+  background-color: var(--principal);
+  border-radius: 6px;
+
+  color: white;
+  font-size: 14px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+} 
+
+.btn-ghost {
+  width: 100%;
+  margin-top: 10px;
+  padding: 16px 0px;
+  
+  background-color:white;
+  border: 1px solid var(--principal);
+  border-radius: 6px;
+
+  color: var(--principal);
+  font-size: 14px;
+  font-weight: var(--semi-bold);
+}
+
+.hidden {
+  display: none;
+  overflow: hidden;
+  opacity: 0;
+}
+
+
+/* Login */
+#login .container {
+  display: flex;
+  position: absolute; 
+  left: 50%;
+  top: 50%; 
+  transform: translateX(-50%) translateY(-50%);
+
+  width: 80%;
+  height: 80%;
+
+  background-color: white;
+  box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+#login .left {
+  width: 60%;
+
+  background: url(../img/bg-login.jpg) no-repeat center;
+  background-size: cover;
+
+  border-radius: 8px 0px 0px 8px;
+}
+
+#login .right {
+  position: relative;
+
+  width: 40%;
+  padding: 0px 70px 0px;
+}
+
+#login .form {
+  position: absolute; 
+  top: 50%; 
+  transform: translateY(-50%);
+
+  width: 70%;
+}
+
+#login .form h1 {
+  margin-bottom: 70px;
+
+  line-height: 1;
+}
+
+#login .form h1 span {
+  display: block;
+}
+
+
+/* Input */
+input {
+  width: 100%;
+  border: 1px solid var(--subtitulo2);
+  border-radius: 6px;
+  margin-bottom: 10px;
+  outline: none;
+  padding: 19px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: var(--principal);
+}
+
+.input input {
+  padding-left: 56px;
+}
+
+.input {
+  position: relative;
+}
+
+.input i {
+  position: absolute;
+  left: 0;
+  padding-top: 20px;
+  padding-left: 24px;
+  color: var(--subtitulo2);
+  transition: 0.3s;
+}
+
+input:focus + i {
+  color: var(--principal);
+}
+
+
+/* Botões */
+
+.botoes {
+  display: inline-block;
+  width: 100%;
+}
+
+.botoes .btn {
+  width: 40%;
+}
+
+.botoes .btn-ghost {
+  position: absolute;
+  right: 0;
+
+  width: 57%;
+}
+
+
+/* Cadastro */
+.cadastro {
+  margin-top: -40px;
+}
+.cadastro h1 {
+  margin-bottom: 60px!important;
+}
+
+.cadastro h1 span {
+  display: inline!important;
+}
+
+.cadastro .botoes .btn {
+  position: absolute;
+  right: 0;
+
+  width: 57%;
+}
+
+.cadastro .botoes .btn-ghost {
+  position: absolute;
+  left: 0;
+
+  width: 40%;
+}
