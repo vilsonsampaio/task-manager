@@ -1,2 +1,2 @@
-# task-manager
-Projeto desenvolvido no processo seletio da Cogenial
+# Gerenciador de tarefas - Congenial
+Projeto desenvolvido no processo seletivo da Congenial.
