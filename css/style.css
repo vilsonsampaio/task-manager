@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
 
 /* Dando reset no estilo */
 * {
@@ -23,18 +23,15 @@ ul {
 /* Global */
 
 :root {
-  --bg: #F5F6FA;
-  --principal: #4976EF;
+  --bg: #F2F6FF;
+  --principal: #267FFF;
 
   --ok: #15CE9A;
   --error: #E93F66;
   --alert: #FFC866;
 
-  --titulo: #1D3451;
-  --subtitulo: #5F7896;
-  --subtitulo2: #8A9EB5;
-
-  --texto: #3D5879;
+  --texto: #30507D;
+  --sub: #C0CAD7;
 
   --regular: 400;
   --semi-bold: 500;
@@ -52,22 +49,22 @@ body {
 h1 {
   font-size: 32px;
   font-weight: var(--bold);
-  line-height: 48px;
-  letter-spacing: -1px;
 }
 
 h2 {
   font-size: 24px;
   font-weight: var(--semi-bold);
-  line-height: 32px;
-  letter-spacing: -1px;
 }
 
 h3 {
   font-size: 14px;
   font-weight: var(--semi-bold);
-  line-height: 24px;
-  letter-spacing: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--texto);
+  line-height: 1;
 }
 
 .txt-1 {
@@ -80,13 +77,8 @@ h3 {
   line-height: 24px;
 }
 
-.link {
-  color: var(--principal);
-  font-weight: var(--semi-bold);
-}
-
 h1 span {
-  font-weight: var(--black);
+  font-weight: var(--bold);
   color: var(--principal);
 }
 
@@ -95,6 +87,31 @@ button {
   border: none;
   cursor: pointer;
   outline: none;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 19px;
+
+  width: 100%;
+
+  background-color: white;
+  color: var(--texto);
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+
+  border: 1px solid var(--sub);
+  border-radius: 6px;
+
+  box-sizing: border-box;
+  outline: none;
+
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: var(--principal);
 }
 
 .btn {
@@ -176,8 +193,8 @@ button {
 
 #login .form h1 {
   margin-bottom: 70px;
+  font-weight: normal;
 
-  line-height: 1;
 }
 
 #login .form h1 span {
@@ -186,21 +203,6 @@ button {
 
 
 /* Input */
-input {
-  width: 100%;
-  border: 1px solid var(--subtitulo2);
-  border-radius: 6px;
-  margin-bottom: 10px;
-  outline: none;
-  padding: 19px;
-  box-sizing: border-box;
-  transition: 0.3s;
-}
-
-input:focus {
-  border-color: var(--principal);
-}
-
 .input input {
   padding-left: 56px;
 }
@@ -214,7 +216,9 @@ input:focus {
   left: 0;
   padding-top: 20px;
   padding-left: 24px;
-  color: var(--subtitulo2);
+
+  color: var(--sub);
+
   transition: 0.3s;
 }
 
@@ -227,6 +231,7 @@ input:focus + i {
 
 .botoes {
   display: inline-block;
+  
   width: 100%;
 }
 
@@ -266,4 +271,405 @@ input:focus + i {
   left: 0;
 
   width: 40%;
+}
+
+
+
+
+/* Dashboard */
+/* Header */
+
+#dashboard .container {  
+  padding: 0px 100px;
+}
+
+#dashboard header {
+  position: absolute;
+  top: 0;
+
+  width: 100%;
+  height: 70px;
+
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, .12);
+  border-radius: 0px 0px 20px 20px;
+
+  z-index: 2;
+}
+
+#dashboard header .container {
+  display: flex;
+}
+
+#dashboard header .container .logotipo {
+  position: absolute;
+  top: 50%;  
+  left: 100px;
+  transform: translateY(-50%);
+  
+  display: flex;
+  align-items: center;
+
+  color: white;
+}
+
+#dashboard header .container .logotipo .icone {
+  position: relative;
+  margin-right: 15px;
+
+  height: 40px;
+  width: 40px;
+
+  background-color: var(--principal); 
+  border-radius: 50%;
+}
+
+#dashboard header .container .logotipo .icone i {
+  position: absolute;
+  top: 50%;
+  left: 50%;  
+  transform: translateX(-50%) translateY(-50%);
+
+  font-size: 16px;
+}
+
+#dashboard header .container .logotipo h1 {
+  color: var(--texto);
+
+  font-size: 18px;
+  font-weight: var(--bold);
+  text-transform: uppercase;
+}
+
+#dashboard header .container .perfil {
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  transform: translateY(-50%);
+
+  display: flex;
+}
+
+#dashboard header .container .perfil .nome { 
+  display: flex;
+  align-items: center;
+
+  margin-left: 10px;
+}
+
+
+#dashboard header .container .perfil .avatar {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  background-color: var(--bg);
+  border-radius: 6px;
+}
+
+#dashboard header .container .perfil .avatar h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  color: var(--principal);
+
+  font-size: 15px;  
+  font-weight: var(--bold);
+  text-transform: capitalize;  
+  letter-spacing: .5px;
+}
+
+#dashboard header .container .perfil .nome h1 {
+  margin-right: 50px;
+  
+  color: var(--texto);
+
+  font-size: 14px;
+  font-weight: var(--semi-bold);
+  text-transform: capitalize;
+  letter-spacing: .4px;
+}
+
+#dashboard header .container .perfil .nome i {
+  color: var(--principal);
+}
+
+
+
+/* Main */
+
+#dashboard main {
+  padding-top: calc(70px + 50px);
+}
+
+
+/* Topo */
+
+#dashboard main .topo {
+  position: relative;
+  
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 15px;
+
+  border-bottom: solid 2px #E7EDF8;
+}
+
+#dashboard main .topo h1 {
+  font-size: 23px;
+  font-weight: var(--bold);
+}
+
+#dashboard main .topo .filtro {
+  display: flex;
+}
+
+#dashboard main .topo .filtro a {
+  position: relative;
+  
+  margin: 0px 20px;
+  padding-top: 6.5px;
+
+  font-size: 18px;
+  font-weight: var(--semi-bold);
+}
+
+#dashboard main .topo .filtro a.selecionado {
+  color: var(--principal);
+  font-weight: var(--bold);
+}
+
+#dashboard main .topo .filtro a.selecionado::after {
+  content: "...";
+
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: block;
+  
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+
+/* Hero */
+
+#dashboard main .hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 20px;
+}
+
+#dashboard main .hero .pesquisa {
+  position: relative;
+
+  display: flex;
+}
+
+
+#dashboard main .hero .pesquisa input {
+  margin: 0;
+  padding: 20px;
+
+  width: 970px;
+
+  border-radius: 6px;
+}
+
+#dashboard main .hero .pesquisa i {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+
+  color: var(--principal);
+  font-size: 18px;
+}
+
+#dashboard main .hero .adicionar {
+  display: flex;
+
+  padding: 15px;
+
+  background-color: var(--principal);
+  color: white;
+  
+  border-radius: 6px;
+}
+
+#dashboard main .hero .adicionar .icone {
+  position: relative;
+
+  width: 30px;
+  height: 30px;
+
+  border: 3px solid #F2F6FF;
+  border-radius: 50%;
+}
+
+#dashboard main .hero .adicionar .icone i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  font-size: 13px;
+}
+
+#dashboard main .hero .adicionar h2 {
+  margin-left: 8px;
+  padding-top: 8px;
+
+  font-size: 15px;
+  font-weight: var(--bold);
+
+  text-transform: uppercase;
+}
+
+
+/* Cards */
+
+#dashboard main .cards {
+  margin-top: 50px;
+}
+
+#dashboard main .cards .card {
+  margin-bottom: 15px;
+  background-color: white;
+  border-radius: 6px;  
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .05);
+}
+
+/* Header */
+
+#dashboard main .cards .card .header {
+  position: relative;
+
+  display: flex;
+
+  padding: 25px 20px;
+}
+
+#dashboard main .cards .card .header .check {
+  margin-right: 20px;
+  
+  height: 30px;
+  width: 30px;
+
+  border: solid 1.5px var(--sub);
+  border-radius: 50%;
+}
+
+#dashboard main .cards .card .header h1 {
+  position: absolute;
+  top: 50%;
+  left: 70px;
+  transform: translateY(-50%);
+  
+  font-size: 18px;
+  font-weight: var(--semi-bold);
+}
+
+#dashboard main .cards .card .header a {
+  position: absolute;
+
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  
+  font-size: 14px;
+  color: var(--principal);
+}
+
+
+/* Descrição */
+
+#dashboard main .cards .card p {
+  padding: 20px;
+
+  font-size: 14px;
+
+  background-color: #F2F6FF;
+  border-top: solid 1.2px var(--sub);
+}
+
+
+/* Footer */
+
+#dashboard main .cards .card footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 20px;
+
+  border-top: solid 1.2px var(--sub);
+}
+
+#dashboard main .cards .card footer .data { 
+  padding: 10px;
+  
+  font-size: 13px;
+  font-weight: var(--semi-bold);
+  
+  background-color: #F2F6FF;
+  border-radius: 6px;
+}
+
+#dashboard main .cards .card footer .opcoes {
+  position: absolute;
+  display: flex;
+
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+#dashboard main .cards .card footer .opcoes a {
+  margin: 0 5px;
+  color: var(--principal);
+
+}
+
+#dashboard main .cards .card footer .opcoes .editar {
+  padding-top: 1px;
+}
+
+
+
+
+
+/* JavaScript */
+.js #dashboard main .cards .js-card dd,
+.js #dashboard main .cards .js-card i.setas {
+  display: none;
+}
+
+.js #dashboard main .cards .js-card dd.ativo,
+.js #dashboard main .cards .js-card i.setas.ativo {
+  display: block;
+}
+
+.js #dashboard main .cards .js-card dd.ativo {
+  display: block;
+  animation: slideDown .8s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
 }
