@@ -239,6 +239,7 @@ input:focus + i {
 
 .botoes .btn {
   width: 40%;
+  transition: 400ms!important;
 }
 
 .botoes .btn-ghost {

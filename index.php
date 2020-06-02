@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -24,10 +24,10 @@
       <div class="right">       
         <div class="form">
            
-          <form action="./php/login.php" method="POST" class="login">
+          <form action="login.php" method="POST" class="login">
             <h1>Bem-vindo ao<span>Task Manager!</span></h1>
             <div class="input">
-              <input name="usuario" type="text" placeholder="E-mail" required>
+              <input name="email" type="email" placeholder="E-mail" required>
               <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
             </div>            
             <div class="input">
@@ -41,18 +41,18 @@
             </div>
           </form>
            
-          <form class="cadastro">
+          <form action="cadastro.php" method="POST" class="cadastro">
             <h1>Faça o seu <span>cadastro!</span></h1>
             <div class="input">
-              <input type="text" placeholder="Nome e sobrenome" required>
+              <input name="nome" type="text" placeholder="Nome e sobrenome" required>
               <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
             </div>  
             <div class="input">
-              <input type="email" placeholder="E-mail" required>
+              <input name="email" type="email" placeholder="E-mail" required>
               <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
             </div>            
             <div class="input">
-              <input type="password" placeholder="Senha" required>
+              <input name="senha" type="password" placeholder="Senha" required>
               <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
             </div>        
             
