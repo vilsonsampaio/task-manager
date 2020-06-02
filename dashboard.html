@@ -44,24 +44,24 @@
         </div>
         <div class="hero">
           <div class="pesquisa">
-            <input type="text" placeholder="Pesquise por tarefas...">
+            <input type="text" placeholder="Pesquise por data (dd/mm/aaaa)...">
             <a href="#" class="submit">
               <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
             </a>
               
           </div>
-            <a href="#" class="adicionar">
+          <a href="#" class="adicionar">
               <div class="icone">
                 <i class="fa fa-plus fa-lg fa-fw" aria-hidden="true"></i>
               </div>
               <h2>Nova tarefa</h2>
-            </a>
+          </a>
         </div>
         <div class="cards">
           <dl class="card js-card">
             <dt class="header">
               <div class="check">
-
+                <i class="fa fa-check fa-lg fa-fw" aria-hidden="true"></i>
               </div>
               <h1>Lorem ipsum dolor sit amet</h1>
               <a href="#">
@@ -75,8 +75,15 @@
               </p>
             </dd>
             <footer>
-              <div class="data">
-                17.04.20
+              <div class="data-hora">
+                <div class="data">
+                  <i class="fa fa-calendar fa-lg fa-fw" aria-hidden="true"></i>
+                  17.04.20
+                </div>
+                <div class="hora">
+                  <img src="https://image.flaticon.com/icons/svg/1124/1124602.svg"></i>
+                  9:00am-11:00am
+                </div>
               </div>
               <div class="opcoes">
                 <a href="#" class="editar">
@@ -91,7 +98,7 @@
           <dl class="card js-card">
             <dt class="header">
               <div class="check">
-
+                <i class="fa fa-check fa-lg fa-fw" aria-hidden="true"></i>
               </div>
               <h1>Lorem ipsum dolor sit amet</h1>
               <a href="#">
@@ -105,8 +112,15 @@
               </p>
             </dd>
             <footer>
-              <div class="data">
-                17.04.20
+              <div class="data-hora">
+                <div class="data">
+                  <i class="fa fa-calendar fa-lg fa-fw" aria-hidden="true"></i>
+                  19.04.20
+                </div>
+                <div class="hora">
+                  <img src="https://image.flaticon.com/icons/svg/1124/1124602.svg"></i>
+                  23:00am
+                </div>
               </div>
               <div class="opcoes">
                 <a href="#" class="editar">
@@ -122,9 +136,77 @@
       </div>
     </main>
   </section>
+
+  <div id="pop-up" class="adicionar-tarefa">
+    <div class="container">
+      <h1>Adicionar tarefa</h1>
+      <form action="">
+        
+        <div class="input-wrapper">
+          <label for="title">Título</label>
+          <input type="text" name="title" required>
+
+        </div>
+
+        <div class="input-wrapper">
+          <label for="description">Descrição</label>
+          <textarea name="description" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="input-wrapper">
+          <label for="date">Data</label>
+          <input type="date" name="date" required>
+        </div>
+
+        <div class="input-wrapper">
+          <label for="time">Hora</label>
+          <input type="time" name="time">
+        </div>
+
+        <a href="#" class="sair">Voltar</a>
+        <button>Adicionar</button>
+
+      </form>
+    </div>
+  </div>
+
+  <div id="pop-up" class="editar-tarefa">
+    <div class="container">
+      <h1>Editar tarefa</h1>
+      <form action="">
+        
+        <div class="input-wrapper">
+          <label for="title">Título</label>
+          <input type="text" name="title" required>
+
+        </div>
+
+        <div class="input-wrapper">
+          <label for="description">Descrição</label>
+          <textarea name="description" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="input-wrapper">
+          <label for="date">Data</label>
+          <input type="date" name="date" required>
+        </div>
+
+        <div class="input-wrapper">
+          <label for="time">Hora</label>
+          <input type="time" name="time">
+        </div>
+
+        <a href="#" class="sair">Voltar</a>
+        <button>Editar</button>
+
+      </form>
+    </div>
+  </div>
+  
   
   <!--JavaScript-->
   <script src="./js/dashboard.js"></script>
   <!--JavaScript-->
+  
 </body>
 </html>

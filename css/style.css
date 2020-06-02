@@ -77,6 +77,10 @@ a {
   line-height: 24px;
 }
 
+.riscado {
+  text-decoration: line-through;
+}
+
 h1 span {
   font-weight: var(--bold);
   color: var(--principal);
@@ -90,11 +94,6 @@ button {
 }
 
 input {
-  margin-bottom: 10px;
-  padding: 19px;
-
-  width: 100%;
-
   background-color: white;
   color: var(--texto);
 
@@ -204,7 +203,10 @@ input:focus {
 
 /* Input */
 .input input {
+  padding: 19px;
   padding-left: 56px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .input {
@@ -288,11 +290,11 @@ input:focus + i {
   top: 0;
 
   width: 100%;
-  height: 70px;
+  height: 60px;
 
   background-color: white;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, .12);
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 0px 0px 15px 15px;
 
   z-index: 2;
 }
@@ -315,30 +317,31 @@ input:focus + i {
 
 #dashboard header .container .logotipo .icone {
   position: relative;
-  margin-right: 15px;
+  margin-right: 10px;
 
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 
-  background-color: var(--principal); 
+  background-color: var(--principal);
   border-radius: 50%;
 }
 
 #dashboard header .container .logotipo .icone i {
   position: absolute;
   top: 50%;
-  left: 50%;  
+  left: 50%;
   transform: translateX(-50%) translateY(-50%);
-
-  font-size: 16px;
+  
+  font-size: 12px;
 }
 
 #dashboard header .container .logotipo h1 {
   color: var(--texto);
-
-  font-size: 18px;
+  
+  font-size: 14px;
   font-weight: var(--bold);
   text-transform: uppercase;
+  letter-spacing: .8px;
 }
 
 #dashboard header .container .perfil {
@@ -361,9 +364,9 @@ input:focus + i {
 #dashboard header .container .perfil .avatar {
   position: relative;
 
-  width: 40px;
-  height: 40px;
-
+  width: 35px;
+  height: 35px;
+  
   background-color: var(--bg);
   border-radius: 6px;
 }
@@ -375,26 +378,27 @@ input:focus + i {
   transform: translateX(-50%) translateY(-50%);
 
   color: var(--principal);
-
-  font-size: 15px;  
+  
+  font-size: 14px;
   font-weight: var(--bold);
-  text-transform: capitalize;  
+  text-transform: capitalize;
   letter-spacing: .5px;
 }
 
 #dashboard header .container .perfil .nome h1 {
-  margin-right: 50px;
-  
+  margin-right: 40px;
+
   color: var(--texto);
 
-  font-size: 14px;
+  font-size: 13px;
   font-weight: var(--semi-bold);
   text-transform: capitalize;
-  letter-spacing: .4px;
+  letter-spacing: 0.3px;
 }
 
 #dashboard header .container .perfil .nome i {
   color: var(--principal);
+  font-size: 18px;
 }
 
 
@@ -402,7 +406,7 @@ input:focus + i {
 /* Main */
 
 #dashboard main {
-  padding-top: calc(70px + 50px);
+  padding-top: calc(70px + 40px);
 }
 
 
@@ -461,10 +465,10 @@ input:focus + i {
 /* Hero */
 
 #dashboard main .hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
 
+  display: block;
+  
   padding-top: 20px;
 }
 
@@ -472,16 +476,25 @@ input:focus + i {
   position: relative;
 
   display: flex;
+
+  width: calc(100% - 165px - 10px);
 }
 
 
 #dashboard main .hero .pesquisa input {
   margin: 0;
   padding: 20px;
-
-  width: 970px;
+  
+  width: 100%;
 
   border-radius: 6px;
+}
+
+#dashboard main .hero .pesquisa a {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
 }
 
 #dashboard main .hero .pesquisa i {
@@ -495,9 +508,15 @@ input:focus + i {
 }
 
 #dashboard main .hero .adicionar {
+  position: absolute;
   display: flex;
+  
+  top: 20px;
+  right: 0;
 
   padding: 15px;
+
+  width: 165px;
 
   background-color: var(--principal);
   color: white;
@@ -563,9 +582,11 @@ input:focus + i {
   
   height: 30px;
   width: 30px;
-
+  
   border: solid 1.5px var(--sub);
   border-radius: 50%;
+  
+  cursor: pointer;
 }
 
 #dashboard main .cards .card .header h1 {
@@ -614,7 +635,15 @@ input:focus + i {
   border-top: solid 1.2px var(--sub);
 }
 
-#dashboard main .cards .card footer .data { 
+#dashboard main .cards .card footer .data-hora{
+  display: flex;
+}
+
+#dashboard main .cards .card footer .data,
+#dashboard main .cards .card footer .hora { 
+  display: flex;
+
+  margin-right: 10px;
   padding: 10px;
   
   font-size: 13px;
@@ -622,6 +651,15 @@ input:focus + i {
   
   background-color: #F2F6FF;
   border-radius: 6px;
+}
+
+#dashboard main .cards .card footer .hora img { 
+  margin-right: 5px;
+
+  width: 13px;
+  height: 13px;
+
+  opacity: .7;
 }
 
 #dashboard main .cards .card footer .opcoes {
@@ -646,8 +684,156 @@ input:focus + i {
 
 
 
+/* POP-UP */
+#pop-up {
+  position: absolute;
+  top: 0;
+  
+  width: 100%;
+  height: 100%;
+  background-color: var(--principal);
+  
+  z-index: 100;
+}
+
+#pop-up .container {
+  margin: 40px auto;
+
+  width: 35%;
+
+  color: white;
+}
+
+#pop-up h1 {
+  margin-bottom: 25px;
+  
+  font-size: 25px;
+  font-weight: var(--black);
+  
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .2px;
+}
+
+#pop-up form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#pop-up form div:nth-child(1),
+#pop-up form div:nth-child(2) {
+grid-column: span 2;
+}
+
+#pop-up form label {
+  font-weight: var(--bold);
+  line-height: 32px;
+  letter-spacing: .2px;
+}
+
+#pop-up form input,
+#pop-up form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-color: var(--sub);  
+}
+
+#pop-up form textarea {
+  color: var(--texto);
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+
+  border-radius: 6px;
+  outline: none;
+}
+
+#pop-up form a {
+  width: 150px;
+  height: 40px;
+  
+  background-color: #ffffff22;
+
+  font-size: 15px;
+  color: white;
+
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  align-self: end;
+
+  transition: 400ms;
+}
+
+#pop-up form a:hover {
+  color: var(--principal);
+  background-color: white;
+}
+
+#pop-up form button {
+  margin-top: 12px;
+
+  width: 150px;
+  height: 40px;
+  
+  background-color: white;
+
+  font-size: 15px;
+  font-weight: var(--bold);
+  color: var(--principal);
+
+  border-radius: 6px;
+
+  grid-column: 2;
+  justify-self: end;
+
+  transition: 400ms;
+}
+
+#pop-up form button:hover {
+  color: white;
+  background-color: var(--principal);
+  
+  border: solid 1px white;
+}
+
+
+/* Aviso de exclusão */
+#confirmar-exclusao {
+  position: absolute;
+  top: 0;
+  
+  width: 100%;
+  height: 100%;
+  background-color: rgba(38, 127, 255, 1);
+  
+  z-index: 100;
+}
+
+#confirmar-exclusao .container {
+  margin: 40px auto;
+
+  width: 35%;
+
+  color: white;
+}
+
+
+
+
 
 /* JavaScript */
+
+/* Pop-up */
+.hide {
+  display: none;
+}
+
+
+/* Cards */
 .js #dashboard main .cards .js-card dd,
 .js #dashboard main .cards .js-card i.setas {
   display: none;
@@ -672,4 +858,23 @@ input:focus + i {
     opacity: 1;
     max-height: 200px;
   }
+}
+
+#dashboard main .cards .card.checked {
+  opacity: 0.5;
+}
+
+#dashboard main .cards .card .header .check.checked {
+  background-color: var(--sub)!important;
+}
+
+#dashboard main .cards .card .header .check.checked i {
+  display: block;
+  padding: 8px 7px;
+  font-size: 14px;
+  color: white;
+}
+
+#dashboard main .cards .card .header .check i {
+  display: none;
 }
