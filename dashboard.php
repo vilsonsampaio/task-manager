@@ -145,7 +145,7 @@ include('verifica_login.php');
   <div id="pop-up" class="adicionar-tarefa">
     <div class="container">
       <h1>Adicionar tarefa</h1>
-      <form action="">
+      <form action="adicionar_tarefa.php" method="POST">
         
         <div class="input-wrapper">
           <label for="title">Título</label>
