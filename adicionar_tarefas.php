@@ -18,9 +18,11 @@ $query = "INSERT INTO task(title_task, description_task, date_task, time_task, s
 
 // enviando o query para o banco
 $result = mysqli_query($conexao, $query);
-
+echo $result;
 
 if ($result) {
   header('Location: dashboard.php');
   exit();
+} else {
+
 }

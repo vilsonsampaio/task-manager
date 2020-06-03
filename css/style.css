@@ -647,11 +647,15 @@ input:focus + i {
   margin-right: 10px;
   padding: 10px;
   
-  font-size: 13px;
-  font-weight: var(--semi-bold);
-  
   background-color: #F2F6FF;
   border-radius: 6px;
+}
+
+#dashboard main .cards .card footer .data-hora span {
+  margin-left: 8px;
+
+  font-size: 13px;
+  font-weight: var(--semi-bold);
 }
 
 #dashboard main .cards .card footer .hora img { 
@@ -675,7 +679,6 @@ input:focus + i {
 #dashboard main .cards .card footer .opcoes a {
   margin: 0 5px;
   color: var(--principal);
-
 }
 
 #dashboard main .cards .card footer .opcoes .editar {

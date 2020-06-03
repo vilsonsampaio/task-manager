@@ -52,7 +52,6 @@ function initAccordion() {
       
     function activeAccordion(event) {
       event.preventDefault();
-      console.log(this)
       this.parentElement.nextElementSibling.classList.toggle(activeClass);
       this.parentElement.lastElementChild.lastElementChild.classList.toggle(activeClass);
       this.parentElement.lastElementChild.firstElementChild.classList.toggle(activeClass);  
@@ -90,10 +89,53 @@ function initCheck() {
 
 initCheck();
 
-const a = document.querySelectorAll('.js-card dt a');
+function initFormatarData() {
+  const datas = document.querySelectorAll('.card .data span');
+  
+  datas.forEach(data => {
+    data.parentElement.firstElementChild.style = 'font-size: 16px;'
+    const dia = data.innerText.split('-')[2];
+    const mes = data.innerText.split('-')[1];
+    const anoRaw = data.innerText.split('-')[0];
+    const ano = anoRaw[2]+anoRaw[3];
+    data.innerText = `${dia}.${mes}.${ano}`
+  });  
+}
+
+initFormatarData();
 
 
 
+function initFormatarHora() {
+  const horas = document.querySelectorAll('.card .hora span');
+  
+  horas.forEach(hora => {
+    if (hora.innerText === '00:00:00') {
+      hora.parentElement.style= 'display: none;';
+    } else {
+      const hour = hora.innerText.split(':')[0];
+      const minuto = hora.innerText.split(':')[1];
+      hora.innerText = `${hour}:${minuto}`
+    }
+  });  
+}
+
+initFormatarHora();
+
+
+
+function initEsconderDescricao() {
+  const descricoes = document.querySelectorAll('.card dd p');
+
+  for (let i = 0; i < descricoes.length; i++) {
+    if (descricoes[i].innerText == '') {
+      descricoes[i].parentElement.style= 'display: none;';
+      descricoes[i].parentElement.parentElement.firstElementChild.lastElementChild.style= 'display: none;'      
+    }
+  }
+}
+
+initEsconderDescricao();
 
 function centralizaForm() {
   const popup = document.querySelector('#pop-up .container');
@@ -106,8 +148,6 @@ function centralizaForm() {
 }
 
 centralizaForm();
-
-
 
 function acionarPopUp() {
   const adicionarTarefa = document.querySelector('#dashboard main .hero .adicionar');
@@ -132,7 +172,8 @@ acionarPopUp();
 
 
 
- function acionarEditarTarefa() {
+
+function acionarEditarTarefa() {
   const editarTarefas = document.querySelectorAll('#dashboard main .card .editar');
   const dashboard = document.querySelector('#dashboard');
   const popup = document.querySelector('#pop-up.editar-tarefa');
@@ -156,17 +197,24 @@ acionarPopUp();
 
 acionarEditarTarefa();
 
-const excluirTarefas = document.querySelectorAll('#dashboard main .card .excluir');
-
-function confirmarExclusão(event) {
-  event.preventDefault();
-  var r = confirm("Confirma a exclusão?");
-  if (r == true) {
-    this.setAttribute('href', 'oie')
-    console.log("você pressionou OK!");
+function acionarExcluirTarefa() {
+  const excluirTarefas = document.querySelectorAll('#dashboard main .card .excluir');
+  
+  function confirmarExclusão(event) {
+    event.preventDefault();
+    var r = confirm("Confirma a exclusão?");
+    if (r == true) {
+      this.setAttribute('href', 'oie')
+      console.log("você pressionou OK!");
+    }
   }
+  
+  excluirTarefas.forEach(excluirTarefa => {
+    excluirTarefa.addEventListener('click', confirmarExclusão);
+  }); 
 }
 
-excluirTarefas.forEach(excluirTarefa => {
-  excluirTarefa.addEventListener('click', confirmarExclusão);
-}); 
+acionarExcluirTarefa();
+
+
+
