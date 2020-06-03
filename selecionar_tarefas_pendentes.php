@@ -7,7 +7,8 @@ include('verifica_login.php');
 $id_user = $_SESSION['id'];
 
 // guardando o comando em uma variável
-$query = "SELECT title_task, description_task, date_task, time_task FROM task WHERE id_user = '{$id_user}' and status_task = 'pendente' ORDER BY date_task, time_task ASC";
+$query = "SELECT id_task, title_task, description_task, date_task, time_task FROM task WHERE id_user = '{$id_user}' AND status_task = 'pendente' ORDER BY date_task, time_task ASC";
+
 // enviando o query para o banco
 $result = mysqli_query($conexao, $query);
 

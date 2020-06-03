@@ -22,8 +22,7 @@
         
       </div>
       <div class="right">       
-        <div class="form">
-           
+        <div class="form">           
           <form action="login.php" method="POST" class="login">
             <h1>Bem-vindo ao<span>Task Manager!</span></h1>
             <div class="input">
@@ -37,28 +36,7 @@
             
             <div class="botoes">
               <button type="submit" class="btn">Entre</button>
-              <button class="btn-ghost">Cadastre-se</button>
-            </div>
-          </form>
-           
-          <form action="cadastro.php" method="POST" class="cadastro">
-            <h1>Faça o seu <span>cadastro!</span></h1>
-            <div class="input">
-              <input name="nome" type="text" placeholder="Nome e sobrenome" required>
-              <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
-            </div>  
-            <div class="input">
-              <input name="email" type="email" placeholder="E-mail" required>
-              <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
-            </div>            
-            <div class="input">
-              <input name="senha" type="password" placeholder="Senha" required>
-              <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
-            </div>        
-            
-            <div class="botoes">
-              <button class="btn-ghost">Voltar</button>
-              <button type="submit" class="btn">Cadastre-se</button>
+              <a href="cadastro.php" class="btn-ghost">Cadastre-se</a>
             </div>
           </form>
         </div>

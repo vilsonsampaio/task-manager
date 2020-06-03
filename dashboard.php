@@ -57,7 +57,7 @@
             </a>
               
           </div>
-          <a href="#" class="adicionar">
+          <a href="adicionar_tarefas.php" class="adicionar">
               <div class="icone">
                 <i class="fa fa-plus fa-lg fa-fw" aria-hidden="true"></i>
               </div>
@@ -100,10 +100,10 @@
                 </div>
               </div>
               <div class="opcoes">
-                <a href="#" class="editar">
+                <a href="editar_tarefas.php?id_task=<?= $arrayTarefas['id_task']?>" class="editar">
                   <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i>
                 </a>
-                <a href="#" class="excluir">
+                <a onClick="alert('Confirma exclusão?')" href="deletar_tarefas.php?id_task=<?php echo $arrayTarefas['id_task'];?>" class="excluir">
                   <i class="fa fa-trash fa-lg fa-fw" aria-hidden="true"></i>
                 </a>
               </div>
@@ -124,81 +124,9 @@
     </main>
   </section>
 
-  <div id="pop-up" class="adicionar-tarefa">
-    <div class="container">
-      <h1>Adicionar tarefa</h1>
-      <form action="adicionar_tarefas.php" method="POST">
-        
-        <div class="input-wrapper">
-          <label for="title">Título</label>
-          <input type="text" name="title" required>
-
-        </div>
-
-        <div class="input-wrapper">
-          <label for="description">Descrição</label>
-          <textarea name="description" cols="30" rows="10"></textarea>
-        </div>
-
-        <div class="input-wrapper">
-          <label for="date">Data</label>
-          <input type="date" name="date" required>
-        </div>
-
-        <div class="input-wrapper">
-          <label for="time">Hora</label>
-          <input type="time" name="time">
-        </div>
-
-        <a href="#" class="sair">Voltar</a>
-        <button>Adicionar</button>
-
-      </form>
-    </div>
-  </div>
-
-  <div id="pop-up" class="editar-tarefa">
-    <div class="container">
-      <h1>Editar tarefa</h1>
-      <form action="">
-        
-        <div class="input-wrapper">
-          <label for="title">Título</label>
-          <input type="text" name="title" required>
-
-        </div>
-
-        <div class="input-wrapper">
-          <label for="description">Descrição</label>
-          <textarea name="description" cols="30" rows="10"></textarea>
-        </div>
-
-        <div class="input-wrapper">
-          <label for="date">Data</label>
-          <input type="date" name="date" required>
-        </div>
-
-        <div class="input-wrapper">
-          <label for="time">Hora</label>
-          <input type="time" name="time">
-        </div>
-
-        <a href="#" class="sair">Voltar</a>
-        <button>Editar</button>
-
-      </form>
-    </div>
-  </div>
-  
-  
   <!--JavaScript-->
-  <script src="./js/dashboard.js"></script>
+  <script src="./js/scripts.js"></script>
   <!--JavaScript-->
   
 </body>
 </html>
-
-<?php
-// tira o resultado da busca da memória
-// mysqli_free_result($result);
-?>

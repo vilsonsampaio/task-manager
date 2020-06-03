@@ -690,23 +690,16 @@ input:focus + i {
 
 /* POP-UP */
 #pop-up {
-  position: absolute;
-  top: 0;
+  position: absolute;  
+  margin: 40px 0;
   
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  
   background-color: var(--principal);
-  
-  z-index: 100;
-}
-
-#pop-up .container {
-  margin: 40px auto;
-
-  width: 35%;
-
   color: white;
 }
+
 
 #pop-up h1 {
   margin-bottom: 25px;
