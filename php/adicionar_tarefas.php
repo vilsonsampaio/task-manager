@@ -7,27 +7,27 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body style="position: relative; background-color: var(--principal);">
 
-  <div id="pop-up" class="adicionar-tarefa">
+  <div id="pop-up" class="adicionar-tarefa" style="margin: 60px 0;">
       <h1>Adicionar tarefa</h1>
-      <form action="add_tarefas.php" method="POST">
+      <form action="./db/add_tarefas.php" method="POST">
         
         <div class="input-wrapper">
-          <label for="title">Título</label>
-          <input type="text" name="title" required>
+          <label for="title">Título*</label>
+          <input type="text" name="title" placeholder="Informe o título da tarefa" required>
 
         </div>
 
         <div class="input-wrapper">
           <label for="description">Descrição</label>
-          <textarea name="description" cols="30" rows="10"></textarea>
+          <textarea name="description" cols="30" rows="10" placeholder="Digite uma breve descrição"></textarea>
         </div>
 
         <div class="input-wrapper">
-          <label for="date">Data</label>
+          <label for="date">Data*</label>
           <input type="date" name="date" required>
         </div>
 
@@ -36,7 +36,7 @@
           <input type="time" name="time">
         </div>
 
-        <a href="dashboard.php" class="sair">Voltar</a>
+        <a href="../dashboard.php" class="sair">Voltar</a>
         <button type="submit">Adicionar</button>
 
       </form>

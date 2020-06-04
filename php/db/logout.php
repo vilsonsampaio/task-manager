@@ -7,7 +7,7 @@ session_start();
 session_destroy();
 
 // direcionando para o index.php;
-header('Location: index.php');
+header('Location: ../../index.php');
 
 // caso queira destruir uma sessão específica 
 // unset($_SESSION['NOMEDASESSÃO']);

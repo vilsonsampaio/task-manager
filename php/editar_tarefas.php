@@ -1,5 +1,5 @@
 <?php
-    require_once("conexao.php");
+    require_once("./db/conexao.php");
 
     $id_task = $_GET['id_task'];
     
@@ -16,13 +16,13 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body style="position: relative; background-color: var(--principal);">
 
-  <div id="pop-up" class="editar-tarefa">
+  <div id="pop-up" class="editar-tarefa" style="margin: 60px 0;">
     <h1>Editar tarefa</h1>
-    <form action="edit_tarefas.php" method="POST">
+    <form action="./db/edit_tarefas.php" method="POST">
         
         <div class="input-wrapper">
           <label for="title">Título</label>
@@ -49,7 +49,7 @@
           <input type="text" name="id_task" value = "<?= $tarefa['id_task']?>">
         </div>
 
-        <a href="dashboard.php" class="sair">Voltar</a>
+        <a href="../dashboard.php" class="sair">Voltar</a>
         <button type="submit">Editar</button>
 
     </form>

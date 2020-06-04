@@ -4,11 +4,11 @@
 session_start();
 
 // incluindo a conexao
-include('conexao.php'); 
+include('./conexao.php'); 
 
 // evitando que o usuario acesso a pagina sem fazer login
 if(empty($_POST['email']) || empty($_POST['senha'])) {
-  header('Location: index.php');
+  header('Location: ../../index.php');
   exit();
 }
 
@@ -30,13 +30,10 @@ if ($row == 1) {
     $_SESSION['id'] = $rows['id_user'];
     $_SESSION['nome'] = $rows['nome_user'];
   };
-  header('Location: dashboard.php');
-  exit();
-
+  header("Location: ../../dashboard.php");
 } else {
-  // $_SESSION['nao_autenticado'] = true;
-  header('Location: index.php');
-  exit();
+  $_SESSION['nao_autenticado'] = true;
+  header('Location: ../../index.php');
 }
 
 

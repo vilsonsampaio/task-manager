@@ -114,9 +114,11 @@ input:focus {
 }
 
 .btn {
-  width: 100%;
   margin-top: 10px;
   padding: 16px 0px;
+  
+  width: 100%;
+  height: 50px;
   
   background-color: var(--principal);
   border-radius: 6px;
@@ -191,7 +193,7 @@ input:focus {
 }
 
 #login .form h1 {
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   font-weight: normal;
 
 }
@@ -254,8 +256,9 @@ input:focus + i {
 .cadastro {
   margin-top: -40px;
 }
+
 .cadastro h1 {
-  margin-bottom: 60px!important;
+  margin-bottom: 50px!important;
 }
 
 .cadastro h1 span {
@@ -276,6 +279,56 @@ input:focus + i {
   width: 40%;
 }
 
+.botoes a.btn-ghost {
+  padding: 18px 0;
+  
+  height: 50px;
+  
+  text-align: center;
+  font-weight: var(--regular);
+}
+
+
+/* Mensagem de erro */
+.erro {
+  position: relative;
+  display: flex;
+
+  margin-bottom: 10px;
+  padding: 17px 20px;
+  
+  height: 60px;
+  
+  background-color: rgba(233, 63, 102, 0.05);
+
+
+  border: 1px solid var(--error);
+  border-radius: 6px;
+}
+
+
+.erro .icone {
+  margin-right: 10px;
+  padding: 6px 0;
+
+  height: 25px;
+  width: 25px;
+
+  background-color: var(--error);
+  color: white;
+
+  font-size: 13px;
+  
+  border-radius: 6px;
+  
+  text-align: center;
+}
+
+.erro p {
+  padding: 5px 0;
+
+  font-size: 14px;
+}
 
 
 
@@ -473,7 +526,7 @@ input:focus + i {
   padding-top: 20px;
 }
 
-#dashboard main .hero .pesquisa {
+#dashboard main .hero form.pesquisa {
   position: relative;
 
   display: flex;
@@ -482,7 +535,7 @@ input:focus + i {
 }
 
 
-#dashboard main .hero .pesquisa input {
+#dashboard main .hero form.pesquisa input {
   margin: 0;
   padding: 20px;
   
@@ -491,11 +544,17 @@ input:focus + i {
   border-radius: 6px;
 }
 
-#dashboard main .hero .pesquisa a {
+#dashboard main .hero form.pesquisa button {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   right: 0;
+  transform: translateY(-50%);
+
+  width: 25px;
+  height: 25px;
+  
+  background-color: white;
+  border-right: solid 1px #C0CAD7;
 }
 
 #dashboard main .hero .pesquisa i {
@@ -562,11 +621,33 @@ input:focus + i {
 }
 
 #dashboard main .cards .card {
+  position: relative;
   margin-bottom: 15px;
+  
   background-color: white;
   border-radius: 6px;  
   box-shadow: 0px 0px 10px rgba(0, 0, 0, .05);
 }
+
+
+#dashboard main .cards .card .bolinha{
+  position: absolute;
+  top: 36px;
+  left: -5px;
+
+  width: 10px;
+  height: 10px;
+
+  background-color: var(--error);
+  border-radius: 50%;
+  
+  z-index: 1;
+}
+
+#dashboard main .cards .card .bolinha-amarela{
+  background-color: var(--alert)!important;
+}
+
 
 /* Header */
 
@@ -578,7 +659,7 @@ input:focus + i {
   padding: 25px 20px;
 }
 
-#dashboard main .cards .card .header .check {
+#dashboard main .cards .card .header a.check {
   margin-right: 20px;
   
   height: 30px;
@@ -600,7 +681,7 @@ input:focus + i {
   font-weight: var(--semi-bold);
 }
 
-#dashboard main .cards .card .header a {
+#dashboard main .cards .card .header a.seta {
   position: absolute;
 
   top: 50%;
@@ -691,7 +772,7 @@ input:focus + i {
 /* POP-UP */
 #pop-up {
   position: absolute;  
-  margin: 40px 0;
+  margin: 60px 0;
   
   left: 50%;
   transform: translateX(-50%);
@@ -872,6 +953,6 @@ grid-column: span 2;
   color: white;
 }
 
-#dashboard main .cards .card .header .check i {
+#dashboard main .cards .card .header a.check i {
   display: none;
 }

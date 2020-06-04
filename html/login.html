@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<?php
+  session_start();
+?>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -9,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <!-- <script src="https://kit.fontawesome.com/4adcf1a323.js" crossorigin="anonymous"></script> -->
 
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 
   <script>
     document.documentElement.className += ' js';
@@ -26,6 +29,20 @@
            
           <form action="./php/login.php" method="POST" class="login">
             <h1>Bem-vindo ao<span>Task Manager!</span></h1>
+            <?php
+              if(isset($_SESSION['nao_autenticado'])) {
+            ?>  
+            <div class="erro">
+              <div class="icone">
+                <i class="fa fa-exclamation fa-lg fa-fw" aria-hidden="true"></i>
+              </div>
+              <p>E-mail ou senha inválidos!</p>
+            </div>
+            <?php
+              }
+              unset($_SESSION['nao_autenticado'])
+            ?>
+            
             <div class="input">
               <input name="usuario" type="text" placeholder="E-mail" required>
               <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
@@ -67,7 +84,31 @@
   </div>
 
    <!--JavaScript-->
-   <script src="./js/scripts.js"></script>
+   <script>
+
+     function initCadastroLogin() {
+      const botoes = document.querySelectorAll('#login form button.btn-ghost');
+      const forms = document.querySelectorAll('#login .form form');
+
+      forms[1].classList.add('hidden')
+
+      function adicionaHiddenCadastro() {
+        forms[1].classList.add('hidden');
+        forms[0].classList.remove('hidden');
+      }
+
+      function adicionaHiddenLogin() {
+        forms[0].classList.add('hidden');
+        forms[1].classList.remove('hidden');
+      }
+
+      botoes[1].addEventListener('click', adicionaHiddenCadastro);
+      botoes[0].addEventListener('click', adicionaHiddenLogin);  
+
+    }
+
+    initCadastroLogin(); 
+   </script>
    <!--JavaScript-->
 </body>
 </html>

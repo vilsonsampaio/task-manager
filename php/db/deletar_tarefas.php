@@ -1,7 +1,7 @@
 <?php
 
 // incluindo a conexao
-include('conexao.php');
+include('./conexao.php');
 
 // avisando que estamos trabalhando com o session
 session_start();
@@ -19,7 +19,7 @@ echo $query;
 $result = mysqli_query($conexao, $query);
 
 if ($result) {
-  header('Location: dashboard.php');
+  header('Location: ../../dashboard.php');
 } else {
   echo "Ocorreu um erro ao deletar a tarefa!";
 }

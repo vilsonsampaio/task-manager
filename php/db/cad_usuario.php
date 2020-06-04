@@ -4,7 +4,7 @@
 session_start();
 
 // incluindo a conexao
-include('conexao.php'); 
+include('./conexao.php'); 
 
 // guardando os valores inseridos no formuário
 $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
@@ -18,9 +18,8 @@ $queryInsert = "INSERT INTO user(nome_user, email_user, senha_user) VALUES ('{$n
 $result = mysqli_query($conexao, $queryInsert);
 
 if (!$result) {
-  echo "O e-mail informado já está cadastrado!";
-  exit();
+  $_SESSION['nao_autenticado'] = true;
+  header('Location: ../cadastro.php');
 } else {
-  header('Location: index.php');
-  exit();
+  header('Location: ../../index.php');
 }

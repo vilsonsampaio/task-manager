@@ -20,19 +20,30 @@ initCriarAvatar();
 
 function initTrocarFiltro() {
   const filtros = document.querySelectorAll('#dashboard main .topo .filtro a');
+  const selects = document.querySelectorAll('#dashboard main .cards > div');
   
   filtros[0].classList.add('selecionado');
+  selects[0].removeAttribute('style');
+  selects[1].style = 'display: none;';
   
   function selecionaPendentes(event) {
     event.preventDefault();
+
     filtros[1].classList.remove('selecionado');
-    filtros[0].classList.add('selecionado'); 
+    filtros[0].classList.add('selecionado');
+
+    selects[0].removeAttribute('style');
+    selects[1].style = 'display: none;'; 
   }
   
   function selecionaConcluidas(event) {
     event.preventDefault();
+
     filtros[0].classList.remove('selecionado');
-    filtros[1].classList.add('selecionado'); 
+    filtros[1].classList.add('selecionado');
+
+    selects[0].style = 'display: none;';
+    selects[1].removeAttribute('style');
   }
   
   filtros[0].addEventListener('click', selecionaPendentes);
@@ -47,6 +58,7 @@ function initAccordion() {
   const accordionList = document.querySelectorAll('.js-card dt');
   const activeClass = 'ativo';
   if (accordionList.length) {
+    
     accordionList[0].nextElementSibling.classList.add(activeClass);
     accordionList[0].lastElementChild.firstElementChild.classList.remove(activeClass);
     accordionList[0].lastElementChild.lastElementChild.classList.add(activeClass);  
@@ -68,14 +80,14 @@ initAccordion();
 
 
 
-function initCheck() {
+function initChecks() {
   const checks = document.querySelectorAll('#dashboard main .cards .card .header .check');
     
   function acionarCheck(event) { 
-    event.preventDefault();
-    this.parentElement.nextElementSibling.classList.remove('ativo'); // remove a descrição 
-    this.parentElement.lastElementChild.lastElementChild.classList.remove('ativo'); // removendo a seta pra cima quando der check
-    this.parentElement.lastElementChild.firstElementChild.classList.add('ativo'); // removendo a seta pra baixa quando der check
+    // event.preventDefault();
+    this.parentElement.nextElementSibling.classList.toggle('ativo'); // remove a descrição 
+    this.parentElement.lastElementChild.lastElementChild.classList.toggle('ativo'); // removendo a seta pra cima quando der check
+    this.parentElement.lastElementChild.firstElementChild.classList.toggle('ativo'); // removendo a seta pra baixa quando der check
     this.parentElement.children[1].classList.toggle('riscado'); // seleciona o h1 e adiciona a classe "riscado"  
     this.parentElement.parentElement.classList.toggle('checked'); // adiciona a classe "checked" em card 
     this.classList.toggle('checked'); // adiciona a classe "checked" pra deixar cinza o bg
@@ -88,7 +100,78 @@ function initCheck() {
    
 }
 
-initCheck();
+initChecks();
+
+
+
+function initAvisoPrazo() {
+  const date = new Date();
+  const dataHora = date.toLocaleString().split(' ');
+  
+  const data = dataHora[0].split('/');
+  const dia = data[0];
+  const mes = data[1];
+  const ano = data[2];
+  
+  const hour = dataHora[1].split(':');
+  const hora = hour[0];
+  const min = hour[1];
+  
+  const datasCard = document.querySelectorAll('.pendentes .card .data span');
+  let diaCard, mesCard, anoCard, horaCard, minCard;
+  
+  datasCard.forEach(dataCard => {
+    diaCard = dataCard.innerText.split('-')[2];
+    mesCard = dataCard.innerText.split('-')[1];
+    anoCard = dataCard.innerText.split('-')[0];
+  
+    horaCard = dataCard.parentElement.nextElementSibling.lastElementChild.innerText.split(':')[0];
+    minCard = dataCard.parentElement.nextElementSibling.lastElementChild.innerText.split(':')[1];
+    
+    
+  
+    if (anoCard < ano) {
+      dataCard.parentElement.parentElement.parentElement.parentElement.firstElementChild.classList.add('bolinha');
+      if (mesCard < mes) {
+        dataCard.parentElement.parentElement.parentElement.parentElement.firstElementChild.classList.add('bolinha');
+        if (diaCard < dia) {
+          dataCard.parentElement.parentElement.parentElement.parentElement.firstElementChild.classList.add('bolinha');        
+        }
+      }
+    } else {
+      if (mesCard < mes) {
+        dataCard.parentElement.parentElement.parentElement.parentElement.firstElementChild.classList.add('bolinha');
+        if (diaCard < dia) {
+          dataCard.parentElement.parentElement.parentElement.parentElement.firstElementChild.classList.add('bolinha');        
+        }
+      } else {
+        if (diaCard < dia) {
+          dataCard.parentElement.parentElement.parentElement.parentElement.firstElementChild.classList.add('bolinha');        
+        }
+      }
+    }
+  
+    if ((anoCard == ano) && (mesCard == mes) && (diaCard == dia)) {
+      if (horaCard !== 00) {
+        if (horaCard < hora) {
+          dataCard.parentElement.parentElement.parentElement.parentElement.firstElementChild.classList.add('bolinha', 'bolinha-amarela');
+          if (minCard < min) {
+            dataCard.parentElement.parentElement.parentElement.parentElement.firstElementChild.classList.add('bolinha', 'bolinha-amarela');
+          }
+        } else {
+          dataCard.parentElement.parentElement.parentElement.parentElement.firstElementChild.classList.add('bolinha', 'bolinha-amarela');
+        }    
+      }
+      
+    }
+    
+  
+  })  
+}
+
+initAvisoPrazo();
+
+
 
 function initFormatarData() {
   const datas = document.querySelectorAll('.card .data span');
@@ -128,18 +211,21 @@ initFormatarHora();
 function initEsconderDescricao() {
   const descricoes = document.querySelectorAll('.card dd p');
 
-  for (let i = 0; i < descricoes.length; i++) {
-    if (descricoes[i].innerText == '') {
-      descricoes[i].parentElement.style= 'display: none;';
-      descricoes[i].parentElement.parentElement.firstElementChild.lastElementChild.style= 'display: none;'      
+  var i = 0;
+  descricoes.forEach(descricao => {
+    if (!descricao.innerText) {
+      descricao.style='display: none;';
+      descricao.parentElement.parentElement.children[1].lastElementChild.style='display:none;'; 
     }
-  }
+  });
 }
 
 initEsconderDescricao();
 
 
 
+
+/* 
 function acionarEditarTarefa() {
   const editarTarefas = document.querySelectorAll('#dashboard main .card .editar');
   const dashboard = document.querySelector('#dashboard');
@@ -164,24 +250,29 @@ function acionarEditarTarefa() {
 
 acionarEditarTarefa();
 
-// function acionarExcluirTarefa() {
-//   const excluirTarefas = document.querySelectorAll('#dashboard main .card .excluir');
+*/
+
+
+
+/* 
+function acionarExcluirTarefa() {
+  const excluirTarefas = document.querySelectorAll('#dashboard main .card .excluir');
   
-//   function confirmarExclusão(event) {
-//     event.preventDefault();
-//     var r = confirm("Confirma a exclusão?");
-//     if (r == true) {
-//       this.setAttribute('href', 'oie')
-//       console.log("você pressionou OK!");
-//     }
-//   }
+  function confirmarExclusão(event) {
+    event.preventDefault();
+    var r = confirm("Confirma a exclusão?");
+    if (r == true) {
+      this.setAttribute('href', 'oie')
+      console.log("você pressionou OK!");
+    }
+  }
   
-//   excluirTarefas.forEach(excluirTarefa => {
-//     excluirTarefa.addEventListener('click', confirmarExclusão);
-//   }); 
-// }
+  excluirTarefas.forEach(excluirTarefa => {
+    excluirTarefa.addEventListener('click', confirmarExclusão);
+  }); 
+}
 
-// acionarExcluirTarefa();
+acionarExcluirTarefa();
 
-
+*/
 

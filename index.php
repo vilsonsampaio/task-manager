@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,20 +26,35 @@
       </div>
       <div class="right">       
         <div class="form">           
-          <form action="login.php" method="POST" class="login">
+          <form action="php/db/login.php" method="POST" class="login">
             <h1>Bem-vindo ao<span>Task Manager!</span></h1>
+
+            <?php
+              if(isset($_SESSION['nao_autenticado'])) {
+            ?>  
+            <div class="erro">
+              <div class="icone">
+                <i class="fa fa-exclamation fa-lg fa-fw" aria-hidden="true"></i>
+              </div>
+              <p>E-mail ou senha inválidos!</p>
+            </div>
+            <?php
+              }
+              unset($_SESSION['nao_autenticado'])
+            ?>
+
             <div class="input">
-              <input name="email" type="email" placeholder="E-mail" required>
+              <input name="email" type="email" placeholder="E-mail*" required>
               <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
             </div>            
             <div class="input">
-              <input name="senha" type="password" placeholder="Senha" required>
+              <input name="senha" type="password" placeholder="Senha*" required>
               <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
             </div>        
             
             <div class="botoes">
               <button type="submit" class="btn">Entre</button>
-              <a href="cadastro.php" class="btn-ghost">Cadastre-se</a>
+              <a href="php/cadastro.php" class="btn-ghost">Cadastre-se</a>
             </div>
           </form>
         </div>
