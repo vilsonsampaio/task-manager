@@ -1,2 +1,0 @@
-light: https://dribbble.com/shots/10943578-Task-Manager
-login: https://dribbble.com/shots/4815934-Login-Ver-2
