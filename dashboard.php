@@ -3,9 +3,7 @@
   include('./php/db/conexao.php'); 
   
   // Caso o usuário não esteja logado, redireciona para o index
-  if (!$_SESSION['nome']) {
-    header('Location: index.php');
-  }
+  include('./php/db/verificar_login.php');
 
   $id_user = $_SESSION['id'];
   
