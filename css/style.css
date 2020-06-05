@@ -547,14 +547,13 @@ input:focus + i {
 #dashboard main .hero form.pesquisa button {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: 1px;
   transform: translateY(-50%);
 
   width: 25px;
   height: 25px;
-  
+
   background-color: white;
-  border-right: solid 1px #C0CAD7;
 }
 
 #dashboard main .hero .pesquisa i {

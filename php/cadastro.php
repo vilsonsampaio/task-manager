@@ -10,13 +10,11 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-  <!-- <script src="https://kit.fontawesome.com/4adcf1a323.js" crossorigin="anonymous"></script> -->
+  <!-- Font Awesome -->
 
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="shortcut icon" href="../img/favicon.ico">
 
-  <script>
-    document.documentElement.className += ' js';
-  </script>
 </head>
 <body>
   <div id="login">
@@ -30,6 +28,7 @@
           <form action="./db/cad_usuario.php" method="POST" class="cadastro">
             <h1>Faça o seu <span>cadastro!</span></h1>
 
+            <!-- Mensagem de erro -->
             <?php
               if(isset($_SESSION['nao_autenticado'])) {
             ?>  
@@ -43,6 +42,7 @@
               }
               unset($_SESSION['nao_autenticado'])
             ?>
+            <!-- Mensagem de erro -->
 
             <div class="input">
               <input name="nome" type="text" placeholder="Nome e sobrenome*" required>
@@ -66,9 +66,5 @@
       </div>
     </div>
   </div>
-
-   <!--JavaScript-->
-   <script src="./js/scripts.js"></script>
-   <!--JavaScript-->
 </body>
 </html>

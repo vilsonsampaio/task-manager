@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Manager - Adicionar Tarefas</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  <!-- jQuery para contar caracteres -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- jQuery para contar caracteres -->
+  
 </head>
 <body style="position: relative; background-color: var(--principal);">
 
@@ -21,9 +25,10 @@
 
         </div>
 
-        <div class="input-wrapper">
+        <div class="input-wrapper" style="position: relative;">
           <label for="description">Descrição</label>
-          <textarea name="description" cols="30" rows="10" placeholder="Digite uma breve descrição"></textarea>
+          <textarea id="description" name="description" maxlength="250" cols="30" rows="10" placeholder="Digite uma breve descrição"></textarea>
+          <div class="contador-de-caracteres" style="background-color: white; color: var(--principal); position: absolute; bottom: 10px; right: 10px; font-size: 14px;"><span class="caracteres">250</span> caracteres restantes</div>
         </div>
 
         <div class="input-wrapper">
@@ -42,6 +47,18 @@
       </form>
 
   </div>
+
+  <!-- Contador de caracteres -->
+  <script text="javascript">
+    $(document).on("input", "#description", function () {
+    var caracteresRestantes = 250;
+    var caracteresDigitados = parseInt($(this).val().length);
+    var caracteresRestantes = caracteresRestantes - caracteresDigitados;
+
+    $(".caracteres").text(caracteresRestantes);
+    });
+  </script>
+  <!-- Contador de caracteres -->
   
 </body>
 </html>

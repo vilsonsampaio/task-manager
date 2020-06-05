@@ -1,6 +1,5 @@
 <?php
     
-  // incluindo a conexao
   include('./php/db/conexao.php');
   include('./verifica_login.php');
 
@@ -17,6 +16,8 @@
     $busca = '';
   }
 
+
+  // SELECT DAS TAREFAS PENDENTES
   // guardando o comando em uma variável
   $queryPendentes = "SELECT id_task, title_task, description_task, date_task, time_task FROM task WHERE id_user = '{$id_user}' AND status_task = 'pendente' AND date_task LIKE '%{$busca}%' ORDER BY date_task, time_task ASC";
 
@@ -30,36 +31,46 @@
   $iPendentes = mysqli_num_rows($resultPendentes);
 
 
+  // SELECT DAS TAREFAS CONCLUÍDAS
+  // guardando o comando em uma variável
+  $queryConcluidas = "SELECT id_task, title_task, description_task, date_task, time_task FROM task WHERE id_user = '{$id_user}' AND status_task = 'concluida' AND date_task LIKE '%{$busca}%' ORDER BY date_task, time_task ASC";
 
-
-   // guardando o comando em uma variável
-   $queryConcluidas = "SELECT id_task, title_task, description_task, date_task, time_task FROM task WHERE id_user = '{$id_user}' AND status_task = 'concluida' AND date_task LIKE '%{$busca}%' ORDER BY date_task, time_task ASC";
-
-   // enviando o query para o banco
-   $resultConcluidas = mysqli_query($conexao, $queryConcluidas);
+  // enviando o query para o banco
+  $resultConcluidas = mysqli_query($conexao, $queryConcluidas);
  
-   // transformando os dados em um array
-   $arrayTarefasConcluidas = mysqli_fetch_assoc($resultConcluidas);
+  // transformando os dados em um array
+  $arrayTarefasConcluidas = mysqli_fetch_assoc($resultConcluidas);
  
-   // pegando o número de linhas que o result retornou, para conferir os dados
-   $iConcluidas = mysqli_num_rows($resultConcluidas);
-
+  // pegando o número de linhas que o result retornou, para conferir os dados
+  $iConcluidas = mysqli_num_rows($resultConcluidas);
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Manager - Dashboard</title>
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-
+  <!-- Font Awesome -->
+  
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="shortcut icon" href="./img/favicon.ico">
+
+  <!-- jQuery para criação de máscara para data na busca -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+  <!-- jQuery para criação de máscara para data na busca -->
+
+  <!-- Adicionando a classe js no <html> para aplicação de efeitos -->
   <script>
     document.documentElement.className += ' js';
   </script>
+  <!-- Adicionando a classe js no <html> para aplicação de efeitos -->
+
 </head>
 <body>
   <section id="dashboard">    
@@ -72,7 +83,9 @@
           <h1>Task Manager</h1>
         </a>
         <div class="perfil">
-          <div class="avatar"></div>
+          <div class="avatar">
+
+          </div>
           <div class="nome">
             <h1><?php echo $_SESSION['nome'];?></h1>
             <a href="./php/db/logout.php">
@@ -94,7 +107,7 @@
         <div class="hero">
           <form class="pesquisa">
              
-            <input name="busca" type="text" placeholder="Pesquise por data (DD/MM/AAAA)...">
+            <input name="busca" id="busca" type="text" placeholder="Pesquise por data (DD/MM/AAAA)...">
             <button class="submit">
               <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
             </button>
@@ -111,7 +124,7 @@
 
           <div class="pendentes">
             <?php
-              // se o número de resultados for maior que zero, mostra os dados
+              // se o número de linhas vindos do query for maior que zero, executa o loop
               if($iPendentes > 0) {
                 // inicia o loop que vai mostrar todos os dados
                 do {
@@ -132,7 +145,7 @@
                 </a>
               </dt>
               <dd>
-                <p><?php echo $arrayTarefasPendentes['description_task'];?></p>
+                <p style="word-wrap: break-word;"><?php echo $arrayTarefasPendentes['description_task'];?></p>
               </dd>
               <footer>
                 <div class="data-hora">
@@ -168,7 +181,7 @@
 
           <div class="concluidas">
             <?php
-              // se o número de resultados for maior que zero, mostra os dados
+              // se o número de linhas vindos do query for maior que zero, executa o loop
               if($iConcluidas > 0) {
                 // inicia o loop que vai mostrar todos os dados
                 do {
@@ -186,7 +199,7 @@
                 </a>
               </dt>
               <dd>
-                <p><?php echo $arrayTarefasConcluidas['description_task'];?></p>
+                <p style="word-wrap: break-word;"><?php echo $arrayTarefasConcluidas['description_task'];?></p>
               </dd>
               <footer>
                 <div class="data-hora">
@@ -227,9 +240,13 @@
     </main>
   </section>
 
-  <!--JavaScript-->
   <script src="./js/scripts.js"></script>
-  <!--JavaScript-->
-  
+
+  <!-- Criação da máscara na busca -->
+  <script type="text/javascript">
+    $("#busca").mask("00/00/0000");
+  </script>
+  <!-- Criação da máscara na busca -->
+
 </body>
 </html>

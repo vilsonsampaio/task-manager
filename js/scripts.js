@@ -1,3 +1,4 @@
+// Função que pega as duas primeiras iniciais do nome do usuário para criar avatar
 function initCriarAvatar() {
   const nomeCompleto = document.querySelector('#dashboard header .perfil .nome h1').innerText;
   const nomeSeparado = nomeCompleto.split(' ');
@@ -18,6 +19,7 @@ initCriarAvatar();
 
 
 
+// Função que troca o filtro das tarefas (pendentes e concluídas)
 function initTrocarFiltro() {
   const filtros = document.querySelectorAll('#dashboard main .topo .filtro a');
   const selects = document.querySelectorAll('#dashboard main .cards > div');
@@ -54,6 +56,7 @@ initTrocarFiltro();
 
 
 
+// Função que esconde e mostra a descrição das tarefas, de acordo com o clique na seta
 function initAccordion() {
   const accordionList = document.querySelectorAll('.js-card dt');
   const activeClass = 'ativo';
@@ -80,11 +83,11 @@ initAccordion();
 
 
 
+// Função que realiza o efeito de check nas tarefas que serão marcadas como tal
 function initChecks() {
   const checks = document.querySelectorAll('#dashboard main .cards .card .header .check');
     
-  function acionarCheck(event) { 
-    // event.preventDefault();
+  function acionarCheck() { 
     this.parentElement.nextElementSibling.classList.toggle('ativo'); // remove a descrição 
     this.parentElement.lastElementChild.lastElementChild.classList.toggle('ativo'); // removendo a seta pra cima quando der check
     this.parentElement.lastElementChild.firstElementChild.classList.toggle('ativo'); // removendo a seta pra baixa quando der check
@@ -104,6 +107,7 @@ initChecks();
 
 
 
+// Função que mostra a bolinha de prazo de acordo com a data e hora informada na tarefa
 function initAvisoPrazo() {
   const date = new Date();
   const dataHora = date.toLocaleString().split(' ');
@@ -173,6 +177,7 @@ initAvisoPrazo();
 
 
 
+// Função que formata a data das tarefas (vem como AAAA-MM-DD, e ela transforma para DD.MM.AA)
 function initFormatarData() {
   const datas = document.querySelectorAll('.card .data span');
   
@@ -190,6 +195,7 @@ initFormatarData();
 
 
 
+// Função que formata a hora das tarefas (vem como HH:MM:SS, e ela transforma para HH:MM)
 function initFormatarHora() {
   const horas = document.querySelectorAll('.card .hora span');
   
@@ -207,11 +213,10 @@ function initFormatarHora() {
 initFormatarHora();
 
 
-
+/* 
 function initEsconderDescricao() {
   const descricoes = document.querySelectorAll('.card dd p');
 
-  var i = 0;
   descricoes.forEach(descricao => {
     if (!descricao.innerText) {
       descricao.style='display: none;';
@@ -219,60 +224,5 @@ function initEsconderDescricao() {
     }
   });
 }
-
 initEsconderDescricao();
-
-
-
-
-/* 
-function acionarEditarTarefa() {
-  const editarTarefas = document.querySelectorAll('#dashboard main .card .editar');
-  const dashboard = document.querySelector('#dashboard');
-  const popup = document.querySelector('#pop-up.editar-tarefa');
-  const sair = document.querySelector('#pop-up.editar-tarefa a'); 
-  
-  popup.classList.add('hide');
-
-  function abrePopUp(event) {
-    event.preventDefault();
-    popup.classList.toggle('hide');
-    dashboard.classList.toggle('hide');    
-  }
-  
-  
-  editarTarefas.forEach(editarTarefa => {
-    editarTarefa.addEventListener('click', abrePopUp);
-  }); 
-  
-  sair.addEventListener('click', abrePopUp)  
-}
-
-acionarEditarTarefa();
-
 */
-
-
-
-/* 
-function acionarExcluirTarefa() {
-  const excluirTarefas = document.querySelectorAll('#dashboard main .card .excluir');
-  
-  function confirmarExclusão(event) {
-    event.preventDefault();
-    var r = confirm("Confirma a exclusão?");
-    if (r == true) {
-      this.setAttribute('href', 'oie')
-      console.log("você pressionou OK!");
-    }
-  }
-  
-  excluirTarefas.forEach(excluirTarefa => {
-    excluirTarefa.addEventListener('click', confirmarExclusão);
-  }); 
-}
-
-acionarExcluirTarefa();
-
-*/
-
