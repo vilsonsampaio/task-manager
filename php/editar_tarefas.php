@@ -2,9 +2,7 @@
   include("./db/conexao.php");
 
   // Caso o usuário não esteja logado, redireciona para o index
-  if (!$_SESSION['nome']) {
-    header('Location: ../index.php');
-  }
+  include('./db/verificar_login.php');
 
   $id_task = $_GET['id_task'];
 

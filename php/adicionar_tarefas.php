@@ -1,12 +1,7 @@
 <?php
- 
-  // avisando que estamos trabalhando com sessions
-  session_start();
   
   // Caso o usuário não esteja logado, redireciona para o index
-  if (!$_SESSION['nome']) {
-    header('Location: ../index.php');
-  }
+  include('./db/verificar_login.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
