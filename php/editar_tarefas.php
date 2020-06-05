@@ -1,12 +1,17 @@
 <?php
-    include("./db/conexao.php");
+  include("./db/conexao.php");
 
-    $id_task = $_GET['id_task'];
+  // Caso o usuário não esteja logado, redireciona para o index
+  if (!$_SESSION['nome']) {
+    header('Location: ../index.php');
+  }
 
-    // Pegando os dados da tarefa para inserir automaticamente no formulário
-    $query = "SELECT * FROM task where id_task = '$id_task'";
-    $result = mysqli_query($conexao, $query);
-    $tarefa = mysqli_fetch_array($result);
+  $id_task = $_GET['id_task'];
+
+  // Pegando os dados da tarefa para inserir automaticamente no formulário
+  $query = "SELECT * FROM task where id_task = '$id_task'";
+  $result = mysqli_query($conexao, $query);
+  $tarefa = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
