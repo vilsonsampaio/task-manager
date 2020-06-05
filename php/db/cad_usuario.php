@@ -17,6 +17,8 @@ $queryInsert = "INSERT INTO user(nome_user, email_user, senha_user) VALUES ('{$n
 // enviando o query para o banco
 $result = mysqli_query($conexao, $queryInsert);
 
+// emitindo mensagem de erro, caso o e-mail já estiver cadastrado, dando um refresh na página.
+// se for cadastrado, redireciona para a página de login.
 if (!$result) {
   $_SESSION['nao_autenticado'] = true;
   header('Location: ../cadastro.php');
