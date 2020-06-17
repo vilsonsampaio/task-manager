@@ -249,6 +249,19 @@
     $("#busca").mask("00/00/0000");
   </script>
   <!-- Criação da máscara na busca -->
+  <script>
+    function initEsconderDescricao() {
+      const descricoes = document.querySelectorAll('.card dd p');
+
+      descricoes.forEach(descricao => {
+        if (!descricao.innerText) {
+          descricao.style='display: none;';
+          descricao.parentElement.parentElement.children[1].lastElementChild.style='display:none;'; 
+        }
+      });
+    }
+    initEsconderDescricao();
+  </script>
 
 </body>
 </html>

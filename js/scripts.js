@@ -107,6 +107,46 @@ initChecks();
 
 
 
+
+
+
+
+// Função que formata a data das tarefas (vem como AAAA-MM-DD, e ela transforma para DD.MM.AA)
+function initFormatarData() {
+  const datas = document.querySelectorAll('.card .data span');
+  
+  datas.forEach(data => {
+    data.parentElement.firstElementChild.style = 'font-size: 16px;'
+    const dia = data.innerText.split('-')[2];
+    const mes = data.innerText.split('-')[1];
+    const anoRaw = data.innerText.split('-')[0];
+    const ano = anoRaw[2]+anoRaw[3];
+    data.innerText = `${dia}.${mes}.${ano}`
+  });  
+}
+
+initFormatarData();
+
+
+
+// Função que formata a hora das tarefas (vem como HH:MM:SS, e ela transforma para HH:MM)
+function initFormatarHora() {
+  const horas = document.querySelectorAll('.card .hora span');
+  
+  horas.forEach(hora => {
+    if (hora.innerText === '00:00:00') {
+      hora.parentElement.style= 'display: none;';
+    } else {
+      const hour = hora.innerText.split(':')[0];
+      const minuto = hora.innerText.split(':')[1];
+      hora.innerText = `${hour}:${minuto}`
+    }
+  });  
+}
+
+initFormatarHora();
+
+
 // Função que mostra a bolinha de prazo de acordo com a data e hora informada na tarefa
 function initAvisoPrazo() {
   const date = new Date();
@@ -125,9 +165,11 @@ function initAvisoPrazo() {
   let diaCard, mesCard, anoCard, horaCard, minCard;
   
   datasCard.forEach(dataCard => {
-    diaCard = dataCard.innerText.split('-')[2];
-    mesCard = dataCard.innerText.split('-')[1];
-    anoCard = dataCard.innerText.split('-')[0];
+    diaCard = dataCard.innerText.split('.')[0];
+    mesCard = dataCard.innerText.split('.')[1];
+    anoCard = 20+dataCard.innerText.split('.')[2];
+    console.log(diaCard);
+  
   
     horaCard = dataCard.parentElement.nextElementSibling.lastElementChild.innerText.split(':')[0];
     minCard = dataCard.parentElement.nextElementSibling.lastElementChild.innerText.split(':')[1];
@@ -177,52 +219,3 @@ initAvisoPrazo();
 
 
 
-// Função que formata a data das tarefas (vem como AAAA-MM-DD, e ela transforma para DD.MM.AA)
-function initFormatarData() {
-  const datas = document.querySelectorAll('.card .data span');
-  
-  datas.forEach(data => {
-    data.parentElement.firstElementChild.style = 'font-size: 16px;'
-    const dia = data.innerText.split('-')[2];
-    const mes = data.innerText.split('-')[1];
-    const anoRaw = data.innerText.split('-')[0];
-    const ano = anoRaw[2]+anoRaw[3];
-    data.innerText = `${dia}.${mes}.${ano}`
-  });  
-}
-
-initFormatarData();
-
-
-
-// Função que formata a hora das tarefas (vem como HH:MM:SS, e ela transforma para HH:MM)
-function initFormatarHora() {
-  const horas = document.querySelectorAll('.card .hora span');
-  
-  horas.forEach(hora => {
-    if (hora.innerText === '00:00:00') {
-      hora.parentElement.style= 'display: none;';
-    } else {
-      const hour = hora.innerText.split(':')[0];
-      const minuto = hora.innerText.split(':')[1];
-      hora.innerText = `${hour}:${minuto}`
-    }
-  });  
-}
-
-initFormatarHora();
-
-
-/* 
-function initEsconderDescricao() {
-  const descricoes = document.querySelectorAll('.card dd p');
-
-  descricoes.forEach(descricao => {
-    if (!descricao.innerText) {
-      descricao.style='display: none;';
-      descricao.parentElement.parentElement.children[1].lastElementChild.style='display:none;'; 
-    }
-  });
-}
-initEsconderDescricao();
-*/
