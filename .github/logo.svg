@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="50" viewBox="0 0 300 50">
+  <defs>
+    <clipPath id="clip-logo">
+      <rect width="300" height="50"/>
+    </clipPath>
+  </defs>
+  <g id="logo" clip-path="url(#clip-logo)">
+    <g id="LOGO-2" data-name="LOGO" transform="translate(-81 -1)">
+      <g id="Group_14" data-name="Group 14">
+        <circle id="Ellipse_2" data-name="Ellipse 2" cx="22" cy="22" r="22" transform="translate(81 4)" fill="#267fff"/>
+        <path id="Icon_awesome-check" data-name="Icon awesome-check" d="M7.48,20.677.323,13.52a1.1,1.1,0,0,1,0-1.557L1.88,10.405a1.1,1.1,0,0,1,1.557,0l4.822,4.822L18.586,4.9a1.1,1.1,0,0,1,1.557,0L21.7,6.457a1.1,1.1,0,0,1,0,1.557L9.037,20.678A1.1,1.1,0,0,1,7.48,20.677Z" transform="translate(92 13.423)" fill="#fff"/>
+      </g>
+      <text id="task_manager" data-name="task manager" transform="translate(145 37)" fill="#30507d" font-size="30" font-family="Poppins-Bold, Poppins" font-weight="700"><tspan x="0" y="0">TASK MANAGER</tspan></text>
+    </g>
+  </g>
+</svg>
