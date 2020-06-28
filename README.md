@@ -79,6 +79,6 @@ Depois que o merge da sua pull request for feito, você pode deletar a sua branc
 
 ---
 <p align="center">
-Feito com ♥ by <a href="https://www.linkedin.com/in/vilsonsampaio/">Vilson Sampaio</a>
+Feito com ❤️ by <a href="https://www.linkedin.com/in/vilsonsampaio/">Vilson Sampaio</a>
 </p>
 
