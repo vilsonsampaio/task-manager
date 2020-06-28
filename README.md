@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Ecoleta" title="Ecoleta" src="./.github/logo.svg" width="220px" />
+    <img alt="Task Manager" title="Task Manager" src="./.github/logo.svg" width="220px" />
 </h1>
 
 <p align="center">
@@ -14,7 +14,7 @@
 <br>
 
 <p align="center">
-  <img alt="Ecoleta" src=".github/desktop-sign-in.png" width="100%">
+  <img alt="Task Manager" src=".github/desktop-sign-in.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
