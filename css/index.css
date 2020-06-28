@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+
+/* Dando reset no estilo */
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, ul, ul, p, dd, dt, dl {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* Global */
+
+:root {
+  --bg: #F2F6FF;
+  --principal: #267FFF;
+
+  --ok: #15CE9A;
+  --error: #E93F66;
+  --alert: #FFC866;
+
+  --texto: #30507D;
+  --sub: #C0CAD7;
+
+  --regular: 400;
+  --semi-bold: 500;
+  --bold: 700;
+  --black: 900;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Roboto', sans-serif;
+  color: var(--texto);
+  font-weight: var(--regular);
+  line-height: 1;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+h1 span {
+  font-weight: var(--bold);
+  color: var(--principal);
+}
+
+a, button {
+  text-decoration: none;
+
+  border: none;
+
+  outline: none;
+  cursor: pointer;
+}
+
+input {
+  background-color: white;
+  color: var(--texto);
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+
+  border: 1px solid var(--sub);
+  border-radius: 6px;
+
+  box-sizing: border-box;
+  outline: none;
+
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: var(--principal);
+}
+
+
+/* Login */
+#login {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg);
+}
+
+#login .container {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  
+  position: absolute; 
+  left: 50%;
+  top: 50%; 
+  transform: translateX(-50%) translateY(-50%);
+
+  width: 80%;
+  height: 85%;
+
+  background-color: white;
+  box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+#login .left {
+  background: url(../img/bg-login.jpg) no-repeat left;
+  background-size: cover;
+
+  border-radius: 8px 0px 0px 8px;
+}
+
+#login .right {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login .form {
+  position: absolute;
+
+  display: none;
+
+  width: 75%;
+}
+
+.form h1 {
+  margin-bottom: 50px;
+}
+
+[data-form="login"] h1 span {
+  display: block;
+}
+
+
+/* Input */
+.input {
+  position: relative;
+}
+
+.input input {
+  background-color: white;
+  color: var(--texto);
+
+  width: 100%;
+
+  margin-bottom: 10px;
+  padding: 19px;
+  padding-left: 56px;
+  
+  font-family: 'Roboto', sans-serif;
+  font-size: .875rem;
+
+  border: 1px solid var(--sub);
+  border-radius: 6px;
+
+  box-sizing: border-box;
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.input input:focus {
+  border-color: var(--principal);
+}
+
+
+.input i {
+  position: absolute;
+  left: 0;
+
+  padding-top: 20px;
+  padding-left: 24px;
+
+  color: var(--sub);
+
+  transition: 0.3s;
+}
+
+input:focus + i {
+  color: var(--principal);
+}
+
+
+/* Botões */
+
+.botoes {
+ display: grid;
+ grid-template-columns: .7fr 1fr;
+ grid-gap: 8px;
+
+ margin-top: 10px;
+}
+
+.botoes button {  
+  height: 50px;
+  
+  background-color: var(--principal);
+  color: white;
+  
+  font-size: 14px;
+  
+  border-radius: 6px;
+
+  transition: 300ms!important;
+}
+
+button:hover {
+  opacity: 0.8;
+} 
+
+.botoes a {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 50px;
+
+  background-color:white;
+  color: var(--principal);
+
+  font-size: 14px;
+  font-weight: var(--semi-bold);
+  
+  border: 1px solid var(--principal);
+  border-radius: 6px;
+}
+
+
+
+/* Mensagem de erro */
+.erro {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 10px;
+  padding: 0 15px;
+  
+  height: 60px;
+  
+  background-color: rgba(233, 63, 102, 0.05);
+
+
+  border: 1px solid var(--error);
+  border-radius: 6px;
+}
+
+
+.erro .icone {
+  margin-right: 10px;
+  padding: 6px 0;
+
+  height: 25px;
+  width: 25px;
+
+  background-color: var(--error);
+  color: white;
+
+  font-size: .875rem;
+  
+  border-radius: 6px;
+  
+  text-align: center;
+}
+
+.erro p {
+  font-size: .875rem;
+}
+
+@media (max-width: 930px) {
+  #login .container {
+    grid-template-columns: 1fr;
+
+    width: 60%;
+    height: 90%;
+  }
+
+  #login .left {
+    display: none;
+  }
+
+  .botoes {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.8rem;
+
+  }
+}
+
+@media (max-width: 530px) {
+  #login .container {
+    width: 90%;
+  }
+
+  #login .form {
+    width: 85%;
+  }
+}
+
+
+
+/* JavaScript */
+
+.form-ativo {
+  display: block!important;
+}

@@ -59,7 +59,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <!-- Font Awesome -->
   
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/dashboard.css">
   <link rel="shortcut icon" href="./img/favicon.ico">
 
   <!-- jQuery para criação de máscara para data na busca -->
@@ -115,7 +115,7 @@
             </button>
               
           </form>
-          <a href="./php/adicionar_tarefas.php" class="adicionar">
+          <a href="./adicionar_tarefas.php" class="adicionar">
               <div class="icone">
                 <i class="fa fa-plus fa-lg fa-fw" aria-hidden="true"></i>
               </div>
@@ -127,6 +127,7 @@
           <div class="pendentes">
             <?php
               // se o número de linhas vindos do query for maior que zero, executa o loop
+              echo '<h1 class="mobile-title" style="margin: -5px 0 20px;">Pendentes</h1>';
               if($iPendentes > 0) {
                 // inicia o loop que vai mostrar todos os dados
                 do {
@@ -147,7 +148,7 @@
                 </a>
               </dt>
               <dd>
-                <p style="word-wrap: break-word;"><?php echo $arrayTarefasPendentes['description_task'];?></p>
+                <p><?php echo $arrayTarefasPendentes['description_task'];?></p>
               </dd>
               <footer>
                 <div class="data-hora">
@@ -161,10 +162,10 @@
                   </div>
                 </div>
                 <div class="opcoes">
-                  <a href="./php/editar_tarefas.php?id_task=<?= $arrayTarefasPendentes['id_task']?>" class="editar">
+                  <a href="./editar_tarefas.php?id_task=<?= $arrayTarefasPendentes['id_task']?>" class="editar">
                     <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i>
                   </a>
-                  <a onClick="alert('Confirma exclusão?')" href="./php/db/deletar_tarefas.php?id_task=<?php echo $arrayTarefasPendentes['id_task'];?>" class="excluir">
+                  <a href="./php/db/deletar_tarefas.php?id_task=<?php echo $arrayTarefasPendentes['id_task'];?>" class="excluir">
                     <i class="fa fa-trash fa-lg fa-fw" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -176,7 +177,7 @@
                 }while($arrayTarefasPendentes = mysqli_fetch_assoc($resultPendentes));
               // fim do if 
               } else {
-                echo '<h1 style="font-size: 23px;">Adicione uma tarefa!</h1>';
+                echo '<h1 class="no-task">Adicione uma tarefa!</h1>';
               }
             ?>
           </div>
@@ -184,6 +185,7 @@
           <div class="concluidas">
             <?php
               // se o número de linhas vindos do query for maior que zero, executa o loop
+              echo '<h1 class="mobile-title" style="margin: 40px 0 20px">Concluídas</h1>';
               if($iConcluidas > 0) {
                 // inicia o loop que vai mostrar todos os dados
                 do {
@@ -201,7 +203,7 @@
                 </a>
               </dt>
               <dd>
-                <p style="word-wrap: break-word;"><?php echo $arrayTarefasConcluidas['description_task'];?></p>
+                <p><?php echo $arrayTarefasConcluidas['description_task'];?></p>
               </dd>
               <footer>
                 <div class="data-hora">
@@ -215,10 +217,10 @@
                   </div>
                 </div>
                 <div class="opcoes">
-                  <a href="./php/editar_tarefas.php?id_task=<?= $arrayTarefasConcluidas['id_task']?>" class="editar">
+                  <a href="./editar_tarefas.php?id_task=<?= $arrayTarefasConcluidas['id_task']?>" class="editar">
                     <i class="fa fa-edit fa-lg fa-fw" aria-hidden="true"></i>
                   </a>
-                  <a onClick="alert('Confirma exclusão?')" href="./php/db/deletar_tarefas.php?id_task=<?php echo $arrayTarefasConcluidas['id_task'];?>" class="excluir">
+                  <a href="./php/db/deletar_tarefas.php?id_task=<?php echo $arrayTarefasConcluidas['id_task'];?>" class="excluir">
                     <i class="fa fa-trash fa-lg fa-fw" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -230,7 +232,7 @@
                 }while($arrayTarefasConcluidas = mysqli_fetch_assoc($resultConcluidas));
               // fim do if 
               } else {
-                echo '<h1 style="font-size: 23px;">Nenhuma tarefa foi concluída!</h1>';
+                echo '<h1 class="no-task">Nenhuma tarefa foi concluída!</h1>';
               }
             ?>
           </div>
@@ -249,19 +251,6 @@
     $("#busca").mask("00/00/0000");
   </script>
   <!-- Criação da máscara na busca -->
-  <script>
-    function initEsconderDescricao() {
-      const descricoes = document.querySelectorAll('.card dd p');
-
-      descricoes.forEach(descricao => {
-        if (!descricao.innerText) {
-          descricao.style='display: none;';
-          descricao.parentElement.parentElement.children[1].lastElementChild.style='display:none;'; 
-        }
-      });
-    }
-    initEsconderDescricao();
-  </script>
 
 </body>
 </html>

@@ -20,8 +20,8 @@ $result = mysqli_query($conexao, $queryInsert);
 // emitindo mensagem de erro, caso o e-mail já estiver cadastrado, dando um refresh na página.
 // se for cadastrado, redireciona para a página de login.
 if (!$result) {
-  $_SESSION['nao_autenticado'] = true;
-  header('Location: ../cadastro.php');
+  $_SESSION['nao_autenticado_cadastro'] = true;
+  header('Location: ../../index.php?erro=cadastro');
 } else {
   header('Location: ../../index.php');
 }

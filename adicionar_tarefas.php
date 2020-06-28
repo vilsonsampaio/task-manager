@@ -1,7 +1,7 @@
 <?php
   
   // Caso o usuário não esteja logado, redireciona para o index
-  include('./db/verificar_login.php');
+  include('./php/db/verificar_login.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Manager - Adicionar Tarefas</title>
 
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="./css/dashboard.css">
   <link rel="shortcut icon" href="../img/favicon.ico">
 
   <!-- jQuery para contar caracteres -->
@@ -18,35 +18,36 @@
   <!-- jQuery para contar caracteres -->
   
 </head>
-<body style="position: relative; background-color: var(--principal);">
+<body>
 
-  <div id="pop-up" class="adicionar-tarefa" style="margin: 60px 0;">
+  <div id="pop-up" class="adicionar-tarefa">
+    <form action="./php/db/add_tarefas.php" method="POST">
       <h1>Adicionar tarefa</h1>
-      <form action="./db/add_tarefas.php" method="POST">
         
-        <div class="input-wrapper">
+        <div class="input-titulo">
           <label for="title">Título*</label>
           <input type="text" name="title" placeholder="Informe o título da tarefa" required>
-
         </div>
 
-        <div class="input-wrapper" style="position: relative;">
+        <div class="input-descricao" style="position: relative;">
           <label for="description">Descrição</label>
           <textarea id="description" name="description" maxlength="250" cols="30" rows="10" placeholder="Digite uma breve descrição"></textarea>
           <div class="contador-de-caracteres" style="background-color: white; color: var(--principal); position: absolute; bottom: 10px; right: 10px; font-size: 14px;"><span class="caracteres">250</span> caracteres restantes</div>
         </div>
 
-        <div class="input-wrapper">
-          <label for="date">Data*</label>
-          <input type="date" name="date" required>
+        <div class="input-data-hora">
+          <div class="input-wrapper">
+            <label for="date">Data*</label>
+            <input type="date" name="date" required>
+          </div>
+          <div class="input-wrapper">
+            <label for="time">Hora</label>
+            <input type="time" name="time">
+          </div>
         </div>
 
-        <div class="input-wrapper">
-          <label for="time">Hora</label>
-          <input type="time" name="time">
-        </div>
-
-        <a href="../dashboard.php" class="sair">Voltar</a>
+        
+        <a href="./dashboard.php" class="sair">Voltar</a>
         <button type="submit">Adicionar</button>
 
       </form>

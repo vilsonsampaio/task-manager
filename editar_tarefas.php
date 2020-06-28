@@ -1,8 +1,8 @@
 <?php
-  include("./db/conexao.php");
+  include("./php/db/conexao.php");
 
   // Caso o usuário não esteja logado, redireciona para o index
-  include('./db/verificar_login.php');
+  include('./php/db/verificar_login.php');
 
   $id_task = $_GET['id_task'];
 
@@ -11,38 +11,39 @@
   $result = mysqli_query($conexao, $query);
   $tarefa = mysqli_fetch_array($result);
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Manager - Editar Tarefas</title>
 
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="shortcut icon" href="../img/favicon.ico">
+  <link rel="stylesheet" href="./css/dashboard.css">
+  <link rel="shortcut icon" href="./img/favicon.ico">
 
   <!-- jQuery para contar caracteres -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <!-- jQuery para contar caracteres -->
 
 </head>
-<body style="position: relative; background-color: var(--principal);">
+<body>
 
-  <div id="pop-up" class="editar-tarefa" style="margin: 60px 0;">
-    <h1>Editar tarefa</h1>
-    <form action="./db/edit_tarefas.php" method="POST">
-        
-        <div class="input-wrapper">
-          <label for="title">Título</label>
-          <input type="text" name="title" value = "<?= $tarefa['title_task']?>">
+  <div id="pop-up" class="editar-tarefa">
+    <form action="./php/db/edit_tarefas.php" method="POST">
+      <h1>Editar tarefa</h1>
+      <div class="input-titulo">
+        <label for="title">Título</label>
+        <input type="text" name="title" placeholder="Informe o título da tarefa" value = "<?= $tarefa['title_task']?>">
+      </div>
 
-        </div>
+      <div class="input-descricao" style="position: relative;">
+        <label for="description">Descrição</label>
+        <textarea id="description" name="description" maxlength="250" cols="30" rows="10" placeholder="Digite uma breve descrição"><?= $tarefa['description_task']?></textarea>
+        <div class="contador-de-caracteres" style="background-color: white; color: var(--principal); position: absolute; bottom: 10px; right: 10px; font-size: 14px;"><span class="caracteres">250</span> caracteres restantes</div>
+      </div>
 
-        <div class="input-wrapper" style="position: relative;">
-          <label for="description">Descrição</label>
-          <textarea id="description" name="description" maxlength="250" cols="30" rows="10"><?= $tarefa['description_task']?></textarea>
-          <div class="contador-de-caracteres" style="background-color: white; color: var(--principal); position: absolute; bottom: 10px; right: 10px; font-size: 14px;"><span class="caracteres">250</span> caracteres restantes</div>
-        </div>
+      <div class="input-data-hora">
         <div class="input-wrapper">
           <label for="date">Data</label>
           <input type="date" name="date" value = "<?= $tarefa['date_task']?>">
@@ -52,14 +53,14 @@
           <label for="time">Hora</label>
           <input type="time" name="time" value = "<?= $tarefa['time_task']?>">
         </div>
+      </div>
         
-        <div class="input-wrapper" style="display: none; overflow: hidden; opacity: 0;">
-          <label for="date">ID_task</label>
-          <input type="text" name="id_task" value = "<?= $tarefa['id_task']?>">
-        </div>
+        
+      <input type="hidden" name="id_task" value = "<?= $tarefa['id_task']?>">
 
-        <a href="../dashboard.php" class="sair">Voltar</a>
-        <button type="submit">Editar</button>
+
+      <a href="./dashboard.php" class="sair">Voltar</a>
+      <button type="submit">Editar</button>
 
     </form>
   </div>

@@ -35,8 +35,8 @@ if ($row == 1) {
   header("Location: ../../dashboard.php");
 } else {
   // emitindo mensagem de erro, caso o e-mail e a senha forem inválidos, dando um refresh na página.
-  $_SESSION['nao_autenticado'] = true;
-  header('Location: ../../index.php');
+  $_SESSION['nao_autenticado_login'] = true;
+  header('Location: ../../index.php?erro=login');
 }
 
 
