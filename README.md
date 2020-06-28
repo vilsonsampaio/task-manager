@@ -20,7 +20,6 @@
 ## 💻 Sobre o projeto
 
 O Task Manager é um sistema para gerenciar de tarefas, conectado a um banco de dados, onde é possível adicionar, editar e excluir tarefas, além de marcá-las como concluídas.
-<br>
 
 
 ## 🚀 Tecnologias
@@ -30,13 +29,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [PHP](https://www.php.net/manual/pt_BR/intro-whatis.php)
 - [JavaScript](https://www.javascript.com/)
 - [MySQL](https://www.mysql.com/)
-<br>
-
 
 ## 🔖 Layout
 
 O layout do sistema é responsivo e foi inspirado em um shot do Dribble. Você pode conferir através [desse link](https://dribbble.com/shots/10943578-Task-Manager).
-<br>
 
 
 ## 🤔 Como contribuir
@@ -47,7 +43,6 @@ O layout do sistema é responsivo e foi inspirado em um shot do Dribble. Você p
 - Faça push para a sua branch: `git push origin minha-feature`.
 
 Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
-<br>
 
 
 
