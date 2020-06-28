@@ -3,8 +3,8 @@
 </h1>
 
 <p align="center">
+  <a href="#-sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto-final">Projeto final</a>
@@ -17,6 +17,12 @@
   <img alt="Task Manager" src=".github/desktop-sign-in.png" width="100%">
 </p>
 
+## 💻 Sobre o projeto
+
+O Task Manager é um sistema para gerenciar de tarefas, conectado a um banco de dados, onde é possível adicionar, editar e excluir tarefas, além de marcá-las como concluídas.
+<br>
+
+
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -24,14 +30,14 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [PHP](https://www.php.net/manual/pt_BR/intro-whatis.php)
 - [JavaScript](https://www.javascript.com/)
 - [MySQL](https://www.mysql.com/)
+<br>
 
-## 💻 Projeto
-
-O Task Manager é um sistema para gerenciar de tarefas, conectado a um banco de dados, onde é possível adicionar, editar e excluir tarefas, além de marcá-las como concluídas.
 
 ## 🔖 Layout
 
 O layout do sistema é responsivo e foi inspirado em um shot do Dribble. Você pode conferir através [desse link](https://dribbble.com/shots/10943578-Task-Manager).
+<br>
+
 
 ## 🤔 Como contribuir
 
@@ -41,6 +47,9 @@ O layout do sistema é responsivo e foi inspirado em um shot do Dribble. Você p
 - Faça push para a sua branch: `git push origin minha-feature`.
 
 Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
+<br>
+
+
 
 ## 🌐 Projeto final
 
