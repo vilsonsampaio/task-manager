@@ -80,6 +80,6 @@ O layout do sistema é responsivo e foi inspirado em um shot do Dribble. Você p
 
 ---
 <p align="center">
-Feito com ❤️ by <a href="https://www.linkedin.com/in/vilsonsampaio/">Vilson Sampaio</a>
+Feito com ❤️ <a href="https://www.linkedin.com/in/vilsonsampaio/">Vilson Sampaio</a>
 </p>
 
