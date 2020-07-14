@@ -3,6 +3,20 @@
 </h1>
 
 <p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/vilsonsampaio/task-manager.svg?color=267fff">
+   
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/top/vilsonsampaio/task-manager.svg?color=267fff">
+
+  <a href="https://github.com/vilsonsampaio/task-manager/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/vilsonsampaio/task-manager.svg?color=267fff">
+  </a>
+
+  <a href="https://github.com/vilsonsampaio/">
+    <img alt="Author" src="https://img.shields.io/badge/author-Vilson%20Sampaio-267fff">
+  </a>
+</p>
+
+<p align="center">
   <a href="#-sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
