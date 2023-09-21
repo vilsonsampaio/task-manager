@@ -54,7 +54,7 @@ h1 {
 
 h1 span {
   font-weight: var(--bold);
-  color: var(--principal);
+  color: #f36b2d;
 }
 
 a, button {
@@ -113,7 +113,7 @@ input:focus {
 }
 
 #login .left {
-  background: url(../img/bg-login.jpg) no-repeat left;
+  background: url(../img/strategic-planning-communication.png) no-repeat left;
   background-size: cover;
 
   border-radius: 8px 0px 0px 8px;
