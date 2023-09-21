@@ -23,8 +23,8 @@ ul {
 /* Global */
 
 :root {
-  --bg: #F2F6FF;
-  --principal: #267FFF;
+  --bg: #f36c2da6;
+  --principal: #f36b2d;
 
   --ok: #15CE9A;
   --error: #E93F66;
@@ -50,6 +50,7 @@ body {
 h1 {
   font-size: 2rem;
   font-weight: normal;
+  color: rgb(47, 43, 43);
 }
 
 h1 span {
@@ -206,7 +207,7 @@ input:focus + i {
 .botoes button {  
   height: 50px;
   
-  background-color: var(--principal);
+  background-color: #f36b2d;
   color: white;
   
   font-size: 14px;
@@ -228,7 +229,7 @@ button:hover {
   height: 50px;
 
   background-color:white;
-  color: var(--principal);
+  color: #f36b2d;
 
   font-size: 14px;
   font-weight: var(--semi-bold);
