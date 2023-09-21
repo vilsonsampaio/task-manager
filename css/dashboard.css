@@ -672,18 +672,21 @@ input:focus {
   
   margin-top: 10px;
 
-  background-color: #g;
-  color: white;
+  background-color: #ffffff;
+  color: #f36b2d;
 
   font-size: 15px;
+  
 
   border-radius: 6px;
   transition: 400ms;
 }
 
 #pop-up form a:hover {
-  background-color: white;
-  color: var(--principal);
+  color: white;
+  background-color: var(--principal);
+  
+  border: solid 1px white;
 }
 
 #pop-up form button {
