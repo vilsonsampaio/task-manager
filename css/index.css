@@ -54,7 +54,7 @@ h1 {
 
 h1 span {
   font-weight: var(--bold);
-  color: var(--principal);
+  color: #f36b2d;
 }
 
 a, button {
