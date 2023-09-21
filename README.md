@@ -1,6 +1,6 @@
 <h1 align="center">
     <img alt="Task Manager" title="Task Manager" src="./.github/logo.svg" width="220px" />
-</h1>
+</h1> 
 
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/vilsonsampaio/task-manager.svg?color=267fff">

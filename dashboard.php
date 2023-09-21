@@ -53,7 +53,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Manager - Dashboard</title>
+  <title>Study Management - Dashboard</title>
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
@@ -82,7 +82,7 @@
           <div class="icone">
             <i class="fa fa-check fa-lg fa-fw" aria-hidden="true"></i>
           </div>
-          <h1>Task Manager</h1>
+          <h1>Study Management</h1>
         </a>
         <div class="perfil">
           <div class="avatar">
@@ -100,16 +100,16 @@
     <main>
       <div class="container">
         <div class="topo">
-          <h1>Tarefas</h1>
+          <h1>Lessons</h1>
           <div class="filtro">
-            <a href="#">Pendentes</a>
-            <a href="#">Concluídas</a>
+            <a href="#">Pending</a>
+            <a href="#">Completed</a>
           </div>
         </div>
         <div class="hero">
           <form class="pesquisa">
              
-            <input name="busca" id="busca" type="text" placeholder="Pesquise por data (DD/MM/AAAA)...">
+            <input name="busca" id="busca" type="text" placeholder="Search by date (DD/MM/AAAA)...">
             <button class="submit">
               <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
             </button>
@@ -119,7 +119,7 @@
               <div class="icone">
                 <i class="fa fa-plus fa-lg fa-fw" aria-hidden="true"></i>
               </div>
-              <h2>Nova tarefa</h2>
+              <h2>New Lesson</h2>
           </a>
         </div>
         <div class="cards">
@@ -127,7 +127,7 @@
           <div class="pendentes">
             <?php
               // se o número de linhas vindos do query for maior que zero, executa o loop
-              echo '<h1 class="mobile-title" style="margin: -5px 0 20px;">Pendentes</h1>';
+              echo '<h1 class="mobile-title" style="margin: -5px 0 20px;">Pendants</h1>';
               if($iPendentes > 0) {
                 // inicia o loop que vai mostrar todos os dados
                 do {
@@ -177,7 +177,7 @@
                 }while($arrayTarefasPendentes = mysqli_fetch_assoc($resultPendentes));
               // fim do if 
               } else {
-                echo '<h1 class="no-task">Adicione uma tarefa!</h1>';
+                echo '<h1 class="no-task">Add a lesson</h1>';
               }
             ?>
           </div>
@@ -185,7 +185,7 @@
           <div class="concluidas">
             <?php
               // se o número de linhas vindos do query for maior que zero, executa o loop
-              echo '<h1 class="mobile-title" style="margin: 40px 0 20px">Concluídas</h1>';
+              echo '<h1 class="mobile-title" style="margin: 40px 0 20px">Completed</h1>';
               if($iConcluidas > 0) {
                 // inicia o loop que vai mostrar todos os dados
                 do {
@@ -232,7 +232,7 @@
                 }while($arrayTarefasConcluidas = mysqli_fetch_assoc($resultConcluidas));
               // fim do if 
               } else {
-                echo '<h1 class="no-task">Nenhuma tarefa foi concluída!</h1>';
+                echo '<h1 class="no-task">No lessons have been completed!</h1>';
               }
             ?>
           </div>
