@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Manager - Adicionar Tarefas</title>
+  <title>Lesson Manager - Add Lesson</title>
 
   <link rel="stylesheet" href="./css/dashboard.css">
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -22,16 +22,16 @@
 
   <div id="pop-up" class="adicionar-tarefa">
     <form action="./php/db/add_tarefas.php" method="POST">
-      <h1>Adicionar tarefa</h1>
+      <h1>Add Lesson</h1>
         
         <div class="input-titulo">
-          <label for="title">Título*</label>
-          <input type="text" name="title" placeholder="Informe o título da tarefa" required>
+          <label for="title">Title*</label>
+          <input type="text" name="title" placeholder="Lesson Title" required>
         </div>
 
         <div class="input-descricao" style="position: relative;">
-          <label for="description">Descrição</label>
-          <textarea id="description" name="description" maxlength="250" cols="30" rows="10" placeholder="Digite uma breve descrição"></textarea>
+          <label for="description">Description</label>
+          <textarea id="description" name="description" maxlength="250" cols="30" rows="10" placeholder="Enter a brief description"></textarea>
           <div class="contador-de-caracteres" style="background-color: white; color: var(--principal); position: absolute; bottom: 10px; right: 10px; font-size: 14px;"><span class="caracteres">250</span> caracteres restantes</div>
         </div>
 
