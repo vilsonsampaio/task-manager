@@ -24,13 +24,13 @@ ul {
 
 :root {
   --bg: #F2F6FF;
-  --principal: #267FFF;
+  --principal: #f36b2d;
 
   --ok: #15CE9A;
   --error: #E93F66;
   --alert: #FFC866;
 
-  --texto: #30507D;
+  --texto: #171819;
   --sub: #C0CAD7;
 
   --regular: 400;
@@ -169,7 +169,7 @@ input:focus {
   width: 100%;
   height: 60px;
 
-  background-color: white;
+  background-color: #E7EDF8;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, .12);
   border-radius: 0px 0px 15px 15px;
 
@@ -200,7 +200,7 @@ input:focus {
   height: 30px;
   width: 30px;
 
-  background-color: var(--principal);
+  background-color: #f36b2d;
   border-radius: 50%;
 }
 
@@ -394,7 +394,7 @@ input:focus {
 
   padding: 15px;
 
-  background-color: var(--principal);
+  background-color: #f36b2d;
   color: white;
   
   border-radius: 6px;
@@ -600,7 +600,7 @@ input:focus {
   align-items: center;
   justify-content: center;
   
-  background-color: var(--principal);
+  background-color: #f36c2da6;
   color: white;
 
   width: 100%;
@@ -672,18 +672,21 @@ input:focus {
   
   margin-top: 10px;
 
-  background-color: #ffffff22;
-  color: white;
+  background-color: #ffffff;
+  color: #f36b2d;
 
   font-size: 15px;
+  
 
   border-radius: 6px;
   transition: 400ms;
 }
 
 #pop-up form a:hover {
-  background-color: white;
-  color: var(--principal);
+  color: white;
+  background-color: var(--principal);
+  
+  border: solid 1px white;
 }
 
 #pop-up form button {
